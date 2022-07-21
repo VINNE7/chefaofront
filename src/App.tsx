@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom'
-import Cadastro from './page/Cadastro'
+import Signup from './pages/signup'
 import RoutesComponent from './routes'
 import './styles/global.css'
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <Cadastro />
+      <Signup />
         <RoutesComponent/>
       </BrowserRouter>
     </>
