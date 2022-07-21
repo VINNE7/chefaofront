@@ -15,7 +15,7 @@ export default function Signup() {
 
   return (
     <>
-      <div className="min-h-screen w-screen flex justify-center items-center flex-col  bg-slate-800">
+      <div className="min-h-screen min-w-full flex justify-center items-center flex-col  bg-slate-800">
         <h1 className="text-white text-4xl text-center font-bold">
           Cadastro de Usuário
         </h1>
