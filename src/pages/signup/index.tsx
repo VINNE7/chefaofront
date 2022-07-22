@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import FormButton from "../../components/button";
 
 type FormValues = {
   firstName: string;
@@ -24,15 +25,17 @@ export default function Signup() {
           className="w-4/5 m-0 bg-slate-800 p-3 "
         >
           <div className="input-field">
-            <label className="leading-3 text-left block mb-3 mt-5 text-white text-sm font-extralight">
+            <label className="leading-3 text-left text-white text-sm font-extralight">
               Nome Completo
             </label>
-            <i className="fa fa-user icon absolute w-full mb-2 p-2 min-w-5"/>
-            <input
+           <div className="relative ">
+             <i className="fa fa-user absolute top-1/2 -translate-y-1/2 right-2"/>
+              <input
 
-              className="block box-border w-full rounded border-solid border-1 border-white py-2 px-4 mb-3 text-sm"
+              className="block box-border w-full rounded border-solid border-1 border-white py-2 pl-4 pr-6 mb-3  text-sm"
               {...register("firstName")}
-            />
+              />
+           </div>
           </div>
 
           <div>
@@ -42,11 +45,14 @@ export default function Signup() {
             >
               E-mail
             </label>
-            <i className="fa fa-envelope icon absolute w-full mb-2 p-2 min-w-5"/>
-            <input
-              className="block box-border w-full rounded border-solid border-1 border-white py-2 px-4 mb-3 text-sm"
-              {...register("lastName")}
-            />
+            <div className="relative ">
+              <i className="fa fa-envelope absolute top-1/2 -translate-y-1/2 right-2"/>
+              <input
+
+              className="block box-border w-full rounded border-solid border-1 border-white py-2 pl-4 pr-6 mb-3  text-sm"
+              {...register("firstName")}
+              />
+           </div>
           </div>
 
           <div>
@@ -56,12 +62,14 @@ export default function Signup() {
             >
               Senha
             </label>
-            <i className="fa fa-key icon absolute w-full mb-2 p-2 min-w-5"/>
-            <input
-              className="block box-border w-full rounded border-solid border-1 border-white py-2 px-4 mb-3 text-sm"
-              type="email"
-              {...register("email")}
-            />
+            <div className="relative ">
+             <i className="fa fa-key absolute top-1/2 -translate-y-1/2 right-2"/>
+              <input
+
+              className="block box-border w-full rounded border-solid border-1 border-white py-2 pl-4 pr-6 mb-3  text-sm"
+              {...register("firstName")}
+              />
+           </div>
           </div>
 
           <div className="input-field">
@@ -71,21 +79,18 @@ export default function Signup() {
             >
               Confirmar Senha
             </label>
-            <i className="fa fa-key icon absolute w-full mb-2 p-2 min-w-5"/>
+            <div className="relative ">
+             <i className="fa fa-key absolute top-1/2 -translate-y-1/2 right-2"/>
+              <input
 
-            <input
-              className="block box-border w-full rounded border-solid border-1 border-white py-2 px-4 mb-8 text-sm "
-              type="email"
-              {...register("email")}
-
-            />
+              className="block box-border w-full rounded border-solid border-1 border-white py-2 pl-4 pr-6 mb-3  text-sm"
+              {...register("firstName")}
+              />
+           </div>
 
           </div>
         </form>
-        <input
-          className="flex box-border rounded border-solid border-2 border-white py-2 px-4 text-sm text-white w-1/3 items-center justify-center text-center"
-          type="submit"
-        />
+        <FormButton buttonLabel="Enviar"/>
       </div>
     </>
   );
