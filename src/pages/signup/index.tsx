@@ -28,14 +28,13 @@ export default function Signup() {
             <label className="leading-3 text-left text-white text-sm font-extralight">
               Nome Completo
             </label>
-           <div className="relative ">
-             <i className="fa fa-user absolute top-1/2 -translate-y-1/2 right-2"/>
+            <div className="relative ">
+              <i className="fa fa-user absolute top-1/2 -translate-y-1/2 right-2" />
               <input
-
-              className="block box-border w-full rounded border-solid border-1 border-white py-2 pl-4 pr-6 mb-3  text-sm"
-              {...register("firstName")}
+                className="block box-border w-full rounded border-solid border-1 border-white py-2 pl-4 pr-6 mb-3  text-sm"
+                {...register("firstName")}
               />
-           </div>
+            </div>
           </div>
 
           <div>
@@ -46,13 +45,12 @@ export default function Signup() {
               E-mail
             </label>
             <div className="relative ">
-              <i className="fa fa-envelope absolute top-1/2 -translate-y-1/2 right-2"/>
+              <i className="fa fa-envelope absolute top-1/2 -translate-y-1/2 right-2" />
               <input
-
-              className="block box-border w-full rounded border-solid border-1 border-white py-2 pl-4 pr-6 mb-3  text-sm"
-              {...register("firstName")}
+                className="block box-border w-full rounded border-solid border-1 border-white py-2 pl-4 pr-6 mb-3  text-sm"
+                {...register("firstName")}
               />
-           </div>
+            </div>
           </div>
 
           <div>
@@ -63,13 +61,12 @@ export default function Signup() {
               Senha
             </label>
             <div className="relative ">
-             <i className="fa fa-key absolute top-1/2 -translate-y-1/2 right-2"/>
+              <i className="fa fa-key absolute top-1/2 -translate-y-1/2 right-2" />
               <input
-
-              className="block box-border w-full rounded border-solid border-1 border-white py-2 pl-4 pr-6 mb-3  text-sm"
-              {...register("firstName")}
+                className="block box-border w-full rounded border-solid border-1 border-white py-2 pl-4 pr-6 mb-3  text-sm"
+                {...register("firstName")}
               />
-           </div>
+            </div>
           </div>
 
           <div className="input-field">
@@ -80,17 +77,15 @@ export default function Signup() {
               Confirmar Senha
             </label>
             <div className="relative ">
-             <i className="fa fa-key absolute top-1/2 -translate-y-1/2 right-2"/>
+              <i className="fa fa-key absolute top-1/2 -translate-y-1/2 right-2" />
               <input
-
-              className="block box-border w-full rounded border-solid border-1 border-white py-2 pl-4 pr-6 mb-3  text-sm"
-              {...register("firstName")}
+                className="block box-border w-full rounded border-solid border-1 border-white py-2 pl-4 pr-6 mb-3  text-sm"
+                {...register("firstName")}
               />
-           </div>
-
+            </div>
           </div>
         </form>
-        <FormButton buttonLabel="Enviar"/>
+        <FormButton buttonLabel="Enviar" />
       </div>
     </>
   );
