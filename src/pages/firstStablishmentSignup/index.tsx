@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import FormButton from "../../components/button";
 
 type FormValues = {
   empresa: string;
@@ -10,16 +11,33 @@ type FormValues = {
   endereco: string;
   numero: string;
   bairro: string;
+  contato: string;
 };
 
 export default function FirstStablishmentSignup() {
-  const { register, handleSubmit } = useForm<FormValues>();
+  const { register, handleSubmit, setValue, setFocus } = useForm<FormValues>();
+
   const onSubmit: SubmitHandler<FormValues> = (data) =>
     alert(JSON.stringify(data));
 
+  const checkCep = (e: { target: { value: string } }) => {
+    const cep = e.target.value.replace(/\D/g, "");
+    console.log(cep);
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+      .then((response) => response.json())
+      .then((data) => {
+        // console.log(data);
+        setValue("estado", data.uf);
+        setValue("cidade", data.localidade);
+        setValue("endereco", data.logradouro);
+        setValue("bairro", data.bairro);
+        setFocus("numero");
+      });
+  };
+
   return (
     <div className="min-h-screen w-screen flex justify-center items-center flex-col  bg-slate-800">
-      <h1 className="text-white text-2xl text-center font-bold">
+      <h1 className=" text-white text-2xl text-center font-bold">
         Dados do Estabelecimento
       </h1>
       <form
@@ -32,8 +50,9 @@ export default function FirstStablishmentSignup() {
           </label>
           <input
             className="block box-border w-full rounded border-solid border-1 border-white py-2 px-4 mb-3 text-sm"
-            placeholder="Nome da empresa"
-            {...register("empresa")}
+            placeholder="Digite o nome do estabelecimento"
+            type="text"
+            {...register("empresa", { required: true })}
           />
         </div>
         <div>
@@ -43,9 +62,10 @@ export default function FirstStablishmentSignup() {
 
           <select
             className="block box-border w-full rounded border-solid border-1 border-white py-2 px-4 mb-3 text-sm"
-            {...register("segmento")}
+            required
+            {...register("segmento", { required: true })}
           >
-            <option value="disable">Escolha aqui</option>
+            <option value="disable">Selecione um Segmento</option>
             <option value="pizzaria">Pizzaria</option>
             <option value="lanchonete">Lanchonente</option>
             <option value="comida boteco">Comida de Buteco</option>
@@ -58,8 +78,11 @@ export default function FirstStablishmentSignup() {
           </label>
           <input
             className="block box-border w-full rounded border-solid border-1 border-white py-2 px-4 mb-3 text-sm"
-            placeholder="00000-000"
-            {...register("cep")}
+            placeholder="Digite o CEP do estabelecimento"
+            id="cep"
+            type="text"
+            {...(register("cep"), { required: true })}
+            onBlur={checkCep}
           />
         </div>
 
@@ -70,9 +93,10 @@ export default function FirstStablishmentSignup() {
 
           <select
             className="block box-border w-full rounded border-solid border-1 border-white py-2 px-4 mb-3 text-sm"
+            required
             {...register("estado")}
           >
-            <option value="disable">UF</option>
+            <option value="disable">Selecione um estado</option>
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
             <option value="AP">Amapá</option>
@@ -108,7 +132,8 @@ export default function FirstStablishmentSignup() {
           </label>
           <input
             className="block box-border w-full rounded border-solid border-1 border-white py-2 px-4 mb-3 text-sm"
-            placeholder="Digite sua Cidade"
+            placeholder="Digite o nome da cidade"
+            required
             {...register("cidade")}
           />
         </div>
@@ -118,7 +143,8 @@ export default function FirstStablishmentSignup() {
           </label>
           <input
             className="block box-border w-full rounded border-solid border-1 border-white py-2 px-4 mb-3 text-sm"
-            placeholder="Rua..."
+            placeholder="Digite o nome da rua"
+            required
             {...register("endereco")}
           />
         </div>
@@ -129,8 +155,9 @@ export default function FirstStablishmentSignup() {
             </label>
 
             <input
-              className=" box-border w-28 rounded border-solid border-1 border-white py-2 px-4 mb-3 text-sm"
-              placeholder="Numero"
+              className=" box-border w-28 rounded border-solid border-1 border-white py-2 px-1 mb-3 text-sm"
+              placeholder="Digite o número"
+              required
               {...register("numero")}
             />
           </div>
@@ -139,19 +166,26 @@ export default function FirstStablishmentSignup() {
               Bairro
             </label>
             <input
-              className=" box-border w-28 rounded border-solid border-1 border-white py-2 px-4 mb-3 text-sm"
-              placeholder="Bairro"
+              className=" box-border w-28 rounded border-solid border-1 border-white py-2 px-2 mb-3 text-sm"
+              placeholder="Digite o bairro"
+              required
               {...register("bairro")}
             />
           </div>
         </div>
+        <div>
+          <label className="leading-3 text-left block mb-3 mt-5 text-white tex-sm font-extralight">
+            Contato ou whatsapp
+          </label>
+          <input
+            className="block box-border w-full rounded border-solid border-1 border-white py-2 px-4 mb-3 text-sm"
+            placeholder="Digite o nome da cidade"
+            required
+            {...register("contato")}
+          />
+        </div>
       </form>
-      <button
-        className="box-border rounded border-solid border-2 border-white py-2 px-4 text-sm text-white w-1/4 items-center justify-center text-center"
-        type="submit"
-      >
-        Avançar
-      </button>
+      <FormButton buttonLabel="Avançar" />
     </div>
   );
 }
