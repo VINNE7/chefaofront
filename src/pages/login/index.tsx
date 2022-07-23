@@ -89,7 +89,7 @@ export default function Login() {
           </div>
           <div className='text-center mt-16'>
             <button type="submit"
-              className="box-border border-2 border-#FFD400 py-2 px-4 text-sm text-#24252E rounded w-1/4 items-center justify-center text-center"
+              className="box-border border-2 border-black py-2 px-4 text-sm text-#24252E rounded w-1/4 items-center justify-center text-center"
             >Entrar
             </button>
 
