@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: 'Para api',
+    baseURL: 'https://reqres.in/',
 });
 
 export default api;
