@@ -47,18 +47,17 @@ export default function Login() {
 
   return (
     <>
-      <div className="min-h-[100vh] flex justify-center items-center flex-col bg-stone-100">
-        <div className='m-5'>
-          <img src={Logo} alt="Logo"
-          />
+      <div className="min-h-[100vh] flex justify-center items-center flex-col bg-stone-100 md:flex-row">
+        <div className='m-16'>
+          <img src={Logo} alt="Logo" width={440} height={383} />
         </div>
-        <h1 className="text-oxfordblue text-4xl text-center font-bold">
-          Entrar na Conta
-        </h1>
         <form
           onSubmit={handleFormSubmit}
           className="w-screen max-w-[480px] m-0 p-3 "
         >
+        <h1 className="text-oxfordblue text-4xl text-center font-bold">
+          Entrar na Conta
+        </h1>
 
           <div>
             <label
