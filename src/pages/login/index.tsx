@@ -1,8 +1,8 @@
-import { ChangeEvent, FormEvent, useCallback, useState } from 'react'
+import { FormEvent, useCallback, useState, useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../contexts/Auth/AuthLogin/AuthContext';
 
 import api from '../../services/api'
-
-import LinkComponent from '../../components/Link';
 import Logo from '../../assets/images/logo.png'
 
 
@@ -19,34 +19,40 @@ export default function Login() {
     password: '',
   });
 
+  const auth = useContext(AuthContext);
+  const navigate = useNavigate()
 
-  // const handleInputChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-  //   const { name, value } = event.target;
-  //   setFormData({
-  //     ...formData,
-  //     [name]: value,
-  //   });
-  // }, []);
 
   const handleFormSubmit = useCallback(async (event: FormEvent) => {
     const { email, password } = formData;
+
+    if (email && password) {
+      const isLogged = await auth.signin(email, password)
+      if (isLogged) {
+        navigate('/')
+      } else {
+        alert('Email ou senha incorreto.')
+      }
+    }
 
     const data = {
       email,
       password
     };
+    await api.post('/api/login', data)
+    console.log(data);
 
-    await api.post('rota do back', data)
   }, [formData]);
+
 
   return (
     <>
-      <div className="h-[100vh] flex justify-center items-center flex-col bg-stone-100">
+      <div className="min-h-[100vh] flex justify-center items-center flex-col bg-stone-100">
         <div className='m-5'>
           <img src={Logo} alt="Logo"
           />
         </div>
-        <h1 className="text- #0B1B34 text-4xl text-center font-bold">
+        <h1 className="text-oxfordblue text-4xl text-center font-bold">
           Entrar na Conta
         </h1>
         <form
@@ -65,8 +71,8 @@ export default function Login() {
               <i className="fa fa-envelope absolute top-1/2 -translate-y-1/2 right-2" />
               <input
                 type='email' required placeholder='Seu melhor email ;)' id='email'
-                className="block box-border w-full rounded border border-stone-700 py-2 pl-4 pr-6 mb-3  text-sm"
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                className="block box-border w-full rounded-[5px] border border-royalblue py-2 pl-4 pr-6 mb-3  text-sm"
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
             </div>
           </div>
@@ -79,27 +85,31 @@ export default function Login() {
               Senha
             </label>
             <div className="relative ">
-              <i className="fa fa-key absolute top-1/2 -translate-y-1/2 right-2" />
+              <i className="fa fa-key absolute top-1/4 -translate-y-1/2 right-2" />
               <input
-                type='password' required placeholder='Digite sua senha' id='password'
-                className="w-full border border-stone-700 py-2 pl-4 pr-6 mb-3  text-sm"
-                onChange={(e) => setFormData({ ...formData, password: e.target.value})}
+                type='password' required placeholder='Digite sua senha' id='password' autoComplete='current-password'
+                className="w-full rounded-[5px] border border-royalblue py-2 pl-4 pr-6 mb-7  text-sm"
+                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               />
             </div>
           </div>
-          <div className='text-center mt-16'>
+          <div className='text-center'>
             <button type="submit"
-              className="box-border border-2 border-black py-2 px-4 text-sm text-#24252E rounded w-1/4 items-center justify-center text-center"
+              className="box-border border-2 border-cyberyellow py-2 px-4 text-[sm] rounded-[10px] w-[230px] items-center text-raisinblack txt font-bold"
             >Entrar
             </button>
 
-            <div className=' border-t border-stone-700 p-10 mt-7'>
-              <LinkComponent redirect={'/signup'}
+            <div className='p-10  flex flex-col justify-center items-center'>
+              <span className='font-bold font-xl mb-8' >
+                Ainda não possui uma conta?
+              </span>
+              <Link to={'/signup'}
+                className='bg-cyberyellow  py-3 px-4 text-[sm] rounded-[10px] w-[230px] items-center text-raisinblack txt font-bold '
               >
                 <><span>
                   Registre-se
                 </span></>
-              </LinkComponent>
+              </Link>
             </div>
           </div>
         </form>
