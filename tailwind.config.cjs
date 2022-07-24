@@ -13,6 +13,9 @@ module.exports = {
         cyberyellow: "#FFD400",
         darkgolden: "#E9BA1D",
       },
+      fontFamily: {
+        tahoma: 'Tahoma'
+      }
     },
   },
   plugins: [],
