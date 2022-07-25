@@ -96,8 +96,6 @@ export default function Signup() {
           </div>
         </form>
       </div>
-
-      <div className="flex w-full h-24 bg-colorfooter invisible sm:visible "></div>
     </div>
   );
 }
