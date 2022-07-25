@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <RoutesComponent />
+        <RoutesComponent/>
       </BrowserRouter>
     </>
   )

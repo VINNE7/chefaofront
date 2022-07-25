@@ -1,5 +1,7 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import FormButton from "../../components/button";
+import { Link } from "react-router-dom";
+import { FormButtonBack } from "../../components/button/buttonBack";
+import FormButtonForward from "../../components/button/buttonForward";
 
 type FormValues = {
   firstName: string;
@@ -13,8 +15,8 @@ export default function Signup() {
     alert(JSON.stringify(data));
 
   return (
-    <div className="min-h-screen w-screen flex justify-center items-center flex-col  bg-semiwhitelate-800">
-      <div className="min-h-screen min-w-full flex justify-start items-center flex-col mt-9 bg-semiwhite">
+    <div className="min-h-screen w-screen flex bg-semiwhite justify-center items-center flex-col ">
+      <div className="min-h-screen min-w-full flex justify-start items-center flex-col  bg-semiwhite">
         <h1 className="raisinblack text-4xl leading-12 text-center font-bold w-4/5 mt-9 mb-6">
           Cadastro de Usuário
         </h1>
@@ -44,7 +46,6 @@ export default function Signup() {
             </label>
 
             <div className="relative ">
-
               <input
                 className="block box-border w-full rounded-md border-solid border border-royalblue py-2 px-2 mb-4 text-sm"
                 placeholder="Digite seu e-mail"
@@ -61,7 +62,6 @@ export default function Signup() {
               Senha
             </label>
             <div className="relative ">
-
               <input
                 className="block box-border w-full rounded-md border-solid border border-royalblue py-2 px-2 mb-4 text-sm"
                 placeholder="Digite sua senha"
@@ -77,32 +77,26 @@ export default function Signup() {
             >
               Confirmar Senha
             </label>
-            <div className="relative ">
-
-
-            <input
+            <div className="">
+              <input
                 className="block box-border w-full rounded-md border-solid border border-royalblue py-2 px-2 mb-4 text-sm"
                 placeholder="Digite sua senha"
-              type="email"
-              {...register("email")}
-            />
+                type="email"
+                {...register("email")}
+              />
             </div>
           </div>
-        </form>
-        <input
-          className="flex box-border rounded border-solid border-2 border-white py-2 px-4 text-sm raisinblack w-1/3 items-center justify-center text-center"
-          type="submit"
-        />
-      </div>
+          <div className="text-center raisinblack text-base font-bold flex-row flex justify-between">
+          <Link to={'/login'}>
+          <FormButtonBack buttonLabel="Voltar" />
+          </Link>
+          <Link to={'/firstStablishmentSignup'}>
+          <FormButtonForward buttonLabel="Avançar" />
+          </Link>
 
-      <div className="relative ">
-        <i className="fa fa-key absolute top-1/2 -translate-y-1/2 right-2" />
-        <input
-          className="block box-border w-full rounded border-solid border-1 border-white py-2 pl-4 pr-6 mb-3  text-sm"
-          {...register("firstName")}
-        />
+          </div>
+        </form>
       </div>
-      <FormButton buttonLabel="Enviar" />
     </div>
   );
 }

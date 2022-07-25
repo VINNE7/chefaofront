@@ -56,5 +56,3 @@ export const AuthProvider = (props: IAuthProvaider) => {
         </AuthContext.Provider>
     );
 }
-
-
