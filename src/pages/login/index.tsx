@@ -103,7 +103,7 @@ export default function Login() {
                 Ainda não possui uma conta?
               </span>
               <Link to={'/signup'}
-                className='bg-cyberyellow  py-3 px-4 text-[sm] rounded-[10px] w-[px] items-center text-raisinblack txt font-bold '
+                className='bg-cyberyellow  py-3 px-4 text-[sm] rounded-[10px] w-[230px] items-center text-raisinblack txt font-bold '
               >
                 <><span>
                   Registre-se

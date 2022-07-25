@@ -12,6 +12,7 @@ module.exports = {
         yellowcrayolla: "#FFE75C",
         cyberyellow: "#FFD400",
         darkgolden: "#E9BA1D",
+        colorfooter: '#D9D9D9',
       },
       fontFamily: {
         tahoma: 'Tahoma'

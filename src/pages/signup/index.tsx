@@ -87,16 +87,17 @@ export default function Signup() {
             </div>
           </div>
           <div className="text-center raisinblack text-base font-bold flex-row flex justify-between lg:justify-evenly">
-          <Link to={'/login'}>
-          <FormButtonBack buttonLabel="Voltar" />
-          </Link>
-          <Link to={'/firstStablishmentSignup'}>
-          <FormButtonForward buttonLabel="Avançar" />
-          </Link>
-
+            <Link to={"/login"}>
+              <FormButtonBack buttonLabel="Voltar" />
+            </Link>
+            <Link to={"/firstStablishmentSignup"}>
+              <FormButtonForward buttonLabel="Avançar" />
+            </Link>
           </div>
         </form>
       </div>
+
+      <div className="flex w-full h-24 bg-colorfooter invisible sm:visible "></div>
     </div>
   );
 }
