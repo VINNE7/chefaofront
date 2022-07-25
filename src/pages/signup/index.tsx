@@ -16,7 +16,7 @@ export default function Signup() {
 
   return (
     <div className="min-h-screen w-screen flex bg-semiwhite justify-center items-center flex-col ">
-      <div className="min-h-screen min-w-full flex justify-start items-center flex-col  bg-semiwhite">
+      <div className="min-h-screen min-w-[50%] flex items-center flex-col  bg-semiwhite ">
         <h1 className="raisinblack text-4xl leading-12 text-center font-bold w-4/5 mt-9 mb-6">
           Cadastro de Usuário
         </h1>
@@ -86,7 +86,7 @@ export default function Signup() {
               />
             </div>
           </div>
-          <div className="text-center raisinblack text-base font-bold flex-row flex justify-between">
+          <div className="text-center raisinblack text-base font-bold flex-row flex justify-between lg:justify-evenly">
           <Link to={'/login'}>
           <FormButtonBack buttonLabel="Voltar" />
           </Link>
