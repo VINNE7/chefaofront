@@ -1,5 +1,5 @@
 
-import { FormButtonBack } from "../../components/button/buttonBack";
+import { FormButtonBack } from "../../components/buttonBack";
 
 export default function Home(){
   return(
