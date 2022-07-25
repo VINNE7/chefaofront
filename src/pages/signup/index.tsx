@@ -3,7 +3,6 @@ import FormButton from "../../components/button";
 
 type FormValues = {
   firstName: string;
-  lastName: string;
   email: string;
   password: string;
 };
@@ -14,23 +13,23 @@ export default function Signup() {
     alert(JSON.stringify(data));
 
   return (
-    <div className="min-h-screen w-screen flex justify-center items-center flex-col  bg-slate-800">
-      <div className="min-h-screen min-w-full flex justify-center items-center flex-col  bg-slate-800">
-        <h1 className="text-white text-4xl text-center font-bold">
+    <div className="min-h-screen w-screen flex justify-center items-center flex-col  bg-semiwhitelate-800">
+      <div className="min-h-screen min-w-full flex justify-start items-center flex-col mt-9 bg-semiwhite">
+        <h1 className="raisinblack text-4xl leading-12 text-center font-bold w-4/5 mt-9 mb-6">
           Cadastro de Usuário
         </h1>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="w-4/5 m-0 bg-slate-800 p-3 "
+          className="w-full m-0 bg-semiwhite px-8 "
         >
           <div className="input-field">
-            <label className="leading-3 text-left text-white text-sm font-extralight">
-              Nome Completo
+            <label className="leading-6 text-left raisinblack text-base font-bold mb-2">
+              Nome
             </label>
-            <div className="relative ">
-              <i className="fa fa-user absolute top-1/2 -translate-y-1/2 right-2" />
+            <div className="">
               <input
-                className="block box-border w-full rounded border-solid border-1 border-white py-2 pl-4 pr-6 mb-3  text-sm"
+                className="block box-border w-full rounded-md border-solid border border-royalblue py-2 px-2 mb-4 text-sm"
+                placeholder="Digite seu nome"
                 {...register("firstName")}
               />
             </div>
@@ -38,32 +37,34 @@ export default function Signup() {
 
           <div>
             <label
-              className="leading-3 text-left block mb-3 mt-5 text-white text-sm font-extralight"
+              className="leading-6 text-left raisinblack text-base font-bold mb-2"
               htmlFor="email"
             >
               E-mail
             </label>
 
             <div className="relative ">
-              <i className="fa fa-envelope absolute top-1/2 -translate-y-1/2 right-2" />
+
               <input
-                className="block box-border w-full rounded border-solid border-1 border-white py-2 pl-4 pr-6 mb-3  text-sm"
-                {...register("firstName")}
+                className="block box-border w-full rounded-md border-solid border border-royalblue py-2 px-2 mb-4 text-sm"
+                placeholder="Digite seu e-mail"
+                {...register("email")}
               />
             </div>
           </div>
 
           <div>
             <label
-              className="leading-3 text-left block mb-3 mt-5 text-white text-sm font-extralight"
+              className="leading-6 text-left raisinblack text-base font-bold mb-2"
               htmlFor="password"
             >
               Senha
             </label>
             <div className="relative ">
-              <i className="fa fa-key absolute top-1/2 -translate-y-1/2 right-2" />
+
               <input
-                className="block box-border w-full rounded border-solid border-1 border-white py-2 pl-4 pr-6 mb-3  text-sm"
+                className="block box-border w-full rounded-md border-solid border border-royalblue py-2 px-2 mb-4 text-sm"
+                placeholder="Digite sua senha"
                 {...register("firstName")}
               />
             </div>
@@ -71,16 +72,17 @@ export default function Signup() {
 
           <div className="input-field">
             <label
-              className="leading-3 text-left block mb-3 mt-5 text-white text-sm font-extralight"
+              className="leading-6 text-left raisinblack text-base font-bold mb-2"
               htmlFor="password"
             >
               Confirmar Senha
             </label>
             <div className="relative ">
-            <i className="fa fa-key absolute top-1/2 -translate-y-1/2 right-2" />
+
 
             <input
-              className="block box-border w-full rounded border-solid border-1 border-white py-2 px-4 mb-8 text-sm "
+                className="block box-border w-full rounded-md border-solid border border-royalblue py-2 px-2 mb-4 text-sm"
+                placeholder="Digite sua senha"
               type="email"
               {...register("email")}
             />
@@ -88,7 +90,7 @@ export default function Signup() {
           </div>
         </form>
         <input
-          className="flex box-border rounded border-solid border-2 border-white py-2 px-4 text-sm text-white w-1/3 items-center justify-center text-center"
+          className="flex box-border rounded border-solid border-2 border-white py-2 px-4 text-sm raisinblack w-1/3 items-center justify-center text-center"
           type="submit"
         />
       </div>

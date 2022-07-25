@@ -15,8 +15,12 @@ module.exports = {
       },
       fontFamily: {
         tahoma: 'Tahoma'
-      }
+      },
+      lineHeight: {
+        'extra-loose': '2.5',
+        '12': '2.75rem',
     },
+  }
   },
   plugins: [],
 };
