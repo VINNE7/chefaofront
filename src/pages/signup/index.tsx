@@ -7,6 +7,7 @@ type FormValues = {
   firstName: string;
   email: string;
   password: string;
+  segment: string;
 };
 
 export default function Signup() {
@@ -28,63 +29,61 @@ export default function Signup() {
             <label className="leading-6 text-left raisinblack text-base font-bold mb-2">
               Nome
             </label>
-            <div className="">
-              <input
-                className="block box-border w-full rounded-md border-solid border border-royalblue py-2 px-2 mb-4 text-sm"
-                placeholder="Digite seu nome"
-                {...register("firstName")}
-              />
-            </div>
+            <input
+              className="block box-border w-full rounded-md border-solid border border-royalblue py-2 px-2 mb-4 text-sm"
+              placeholder="Digite seu nome"
+              {...register("firstName")}
+            />
           </div>
 
           <div>
-            <label
-              className="leading-6 text-left raisinblack text-base font-bold mb-2"
-              htmlFor="email"
-            >
+            <label className="leading-6 text-left raisinblack text-base font-bold mb-2">
               E-mail
             </label>
 
-            <div className="relative ">
-              <input
-                className="block box-border w-full rounded-md border-solid border border-royalblue py-2 px-2 mb-4 text-sm"
-                placeholder="Digite seu e-mail"
-                {...register("email")}
-              />
-            </div>
+            <input
+              className="block box-border w-full rounded-md border-solid border border-royalblue py-2 px-2 mb-4 text-sm"
+              placeholder="Digite seu e-mail"
+              type="email"
+              {...register("email")}
+            />
           </div>
-
           <div>
-            <label
-              className="leading-6 text-left raisinblack text-base font-bold mb-2"
-              htmlFor="password"
-            >
+            <label className="leading-6 text-left raisinblack text-base font-bold mb-2">
+              Segmento
+            </label>
+
+            <input
+              className="block box-border w-full rounded-md border-solid border border-royalblue py-2 px-2 mb-4 text-sm"
+              placeholder="Digite seu segmento"
+              type="text"
+              {...register("segment")}
+            />
+          </div>
+          <div>
+            <label className="leading-6 text-left raisinblack text-base font-bold mb-2">
               Senha
             </label>
-            <div className="relative ">
-              <input
-                className="block box-border w-full rounded-md border-solid border border-royalblue py-2 px-2 mb-4 text-sm"
-                placeholder="Digite sua senha"
-                {...register("firstName")}
-              />
-            </div>
+
+            <input
+              className="block box-border w-full rounded-md border-solid border border-royalblue py-2 px-2 mb-4 text-sm"
+              placeholder="Digite sua senha"
+              type="password"
+              {...register("password")}
+            />
           </div>
 
-          <div className="input-field">
-            <label
-              className="leading-6 text-left raisinblack text-base font-bold mb-2"
-              htmlFor="password"
-            >
+          <div className="">
+            <label className="leading-6 text-left raisinblack text-base font-bold mb-2">
               Confirmar Senha
             </label>
-            <div className="">
-              <input
-                className="block box-border w-full rounded-md border-solid border border-royalblue py-2 px-2 mb-4 text-sm"
-                placeholder="Digite sua senha"
-                type="email"
-                {...register("email")}
-              />
-            </div>
+
+            <input
+              className="block box-border w-full rounded-md border-solid border border-royalblue py-2 px-2 mb-4 text-sm"
+              placeholder="Digite sua senha"
+              type="password"
+              {...register("password")}
+            />
           </div>
           <div className="text-center raisinblack text-base font-bold flex-row flex justify-between lg:justify-evenly">
             <Link to={"/login"}>
