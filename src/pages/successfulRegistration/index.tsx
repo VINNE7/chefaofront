@@ -1,12 +1,10 @@
 import React from "react";
-import FormButton from "../../components/button";
+import { Link } from "react-router-dom";
+import { FormButtonBack } from "../../components/buttonBack";
+import FormButtonForward from "../../components/buttonForward";
 import Img from "../../assets/images/registerOk.png";
 
 export default function SuccessfulRegistration() {
-  // const { register, handleSubmit } = useForm<FormValues>();
-  // const onSubmit: SubmitHandler<FormValues> = (data) =>
-  //   alert(JSON.stringify(data));
-
   return (
     <>
       <main className="min-w-[380px]">
@@ -18,8 +16,14 @@ export default function SuccessfulRegistration() {
           Você finalizou o seu cadastro, agora podemos começar a editar o
           cardápio
         </p>
-        <FormButton buttonLabel="Sair" />
-        <FormButton buttonLabel="Começar" />
+        <div className="flex justify-center items-center w-5/6 mx-auto mb-[197px] space-x-5">
+          <Link to={""}>
+            <FormButtonBack buttonLabel="Sair" />
+          </Link>
+          <Link to={"/login"}>
+            <FormButtonForward buttonLabel="Começar" />
+          </Link>
+        </div>
       </main>
     </>
   );
