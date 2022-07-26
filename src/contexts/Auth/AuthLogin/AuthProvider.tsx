@@ -33,8 +33,7 @@ export const AuthProvider = (props: IAuthProvaider) => {
 
     const signin = async( email: string, password: string ) => {
         const data = await userApi.signin(email, password);
-        if ( data.user && data.token) {
-            setUSer(data.user);
+        if (data.token) {
             setToken(data.token)
             return true
         }

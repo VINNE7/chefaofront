@@ -24,10 +24,13 @@ export default function Login() {
 
 
   const handleFormSubmit = useCallback(async (event: FormEvent) => {
+    event.preventDefault()
     const { email, password } = formData;
 
     if (email && password) {
       const isLogged = await auth.signin(email, password)
+      console.log("login", isLogged);
+      
       if (isLogged) {
         navigate('/')
       } else {
@@ -39,9 +42,9 @@ export default function Login() {
       email,
       password
     };
-    await api.post('/api/login', data)
-    console.log(data);
-
+    console.log("handle Submit", data);
+    
+    await api.post('/login', data)
   }, [formData]);
 
 
