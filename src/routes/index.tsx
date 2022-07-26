@@ -20,6 +20,10 @@ export default function RoutesComponent() {
         path="/secondStablishmentSignup"
         element={<SecondStablishmentSignup />}
       ></Route>
+      <Route
+        path="/successfulRegistration"
+        element={<SuccessfulRegistration />}
+      ></Route>
     </Routes>
   );
 }
