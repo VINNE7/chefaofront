@@ -15,7 +15,8 @@ module.exports = {
         colorfooter: '#D9D9D9',
         error: "#DA1414",
         colorFocus: "#2E5AAC",
-        grayDisabled: "#A3A3A3"
+        grayDisabled: "#A3A3A3",
+        royaldark: "#001B42"
       },
       fontFamily: {
         tahoma: 'Tahoma'

@@ -1,5 +1,6 @@
 import { Routes, Route, Link } from "react-router-dom";
 import { RequireAuth } from "../contexts/Auth/AuthLogin/RequireAuth";
+import MenuHeader from "../components/MenuHeader";
 import FirstStablishmentSignup from "../pages/firstStablishmentSignup";
 import Home from "../pages/homepage";
 import Login from "../pages/login";
@@ -20,18 +21,10 @@ export default function RoutesComponent() {
       ></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/signup" element={<Signup />}></Route>
-      <Route
-        path="/firstStablishmentSignup"
-        element={<FirstStablishmentSignup />}
-      ></Route>
-      <Route
-        path="/secondStablishmentSignup"
-        element={<SecondStablishmentSignup />}
-      ></Route>
-      <Route
-        path="/successfulRegistration"
-        element={<SuccessfulRegistration />}
-      ></Route>
+      <Route path="/firstStablishmentSignup" element={<FirstStablishmentSignup />}></Route>
+      <Route path="/secondStablishmentSignup" element={<SecondStablishmentSignup />}></Route>
+      <Route path="/successfulRegistration" element={<SuccessfulRegistration />}></Route>
+      <Route path="/menu" element={<MenuHeader />}></Route>
     </Routes>
   );
 }

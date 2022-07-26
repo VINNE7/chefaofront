@@ -1,7 +1,7 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { FormButtonBack } from "../../components/buttonBack";
-import FormButtonForward from "../../components/buttonForward";
+import { FormButtonBack } from "../../components/button/buttonBack";
+import FormButtonForward from "../../components/button/buttonForward";
 
 type FormValues = {
   firstName: string;
