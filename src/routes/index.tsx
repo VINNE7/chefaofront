@@ -5,6 +5,7 @@ import Home from "../pages/homepage";
 import Login from "../pages/login";
 import SecondStablishmentSignup from "../pages/secondStablishmentSignup";
 import Signup from "../pages/signup";
+import SuccessfulRegistration from "../pages/successfulRegistration";
 
 export default function RoutesComponent() {
   return (
