@@ -25,8 +25,8 @@ export default function Signup() {
           onSubmit={handleSubmit(onSubmit)}
           className="w-full m-0 bg-semiwhite px-8 flex flex-col gap-4"
         >
-          <div className="input-field">
-            <label className="leading-6 text-left raisinblack text-base font-bold mb-2">
+          <div className="flex flex-col gap-2">
+            <label className="leading-6 text-left raisinblack text-base font-bold">
               Nome
             </label>
             <div className="">
@@ -40,9 +40,9 @@ export default function Signup() {
             </div>
           </div>
 
-          <div>
+          <div className="flex flex-col gap-2">
             <label
-              className="leading-6 text-left raisinblack text-base font-bold mb-2"
+              className="leading-6 text-left raisinblack text-base font-bold"
               htmlFor="email"
             >
               E-mail
@@ -59,9 +59,9 @@ export default function Signup() {
             </div>
           </div>
 
-          <div>
+          <div className="flex flex-col gap-2">
             <label
-              className="leading-6 text-left raisinblack text-base font-bold mb-2"
+              className="leading-6 text-left raisinblack text-base font-bold"
               htmlFor="password"
             >
               Segmento
@@ -78,9 +78,9 @@ export default function Signup() {
             </div>
           </div>
 
-          <div>
+          <div className="flex flex-col gap-2">
             <label
-              className="leading-6 text-left raisinblack text-base font-bold mb-2"
+              className="leading-6 text-left raisinblack text-base font-bold"
               htmlFor="password"
             >
               Senha
@@ -101,9 +101,9 @@ export default function Signup() {
             </div>
           </div>
 
-          <div className="input-field">
+          <div className="flex flex-col gap-2">
             <label
-              className="leading-6 text-left raisinblack text-base font-bold mb-2"
+              className="leading-6 text-left raisinblack text-base font-bold"
               htmlFor="password"
             >
               Confirmar Senha
