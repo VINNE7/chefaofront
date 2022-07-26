@@ -11,6 +11,12 @@ html {
   box-sizing: inherit;
 }
 
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'tahoma', sans-serif;
+}
 .modal-overlay {
   background: #24252e;
   position: fixed;
@@ -25,8 +31,4 @@ html {
   background: rgba(36, 37, 46, 0.8);
 }
 
-body {
-  padding: 0;
-  margin: 0;
-  font-family: "Nunito", sans-serif;
-}
+
