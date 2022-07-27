@@ -3,17 +3,17 @@ import api from "./api";
 
 export const requicicaoLogin = () => ({
     validateToken: async ( token: string) => {
-        const res = await api.post('/validate', { token });
-        return res.data;
+        const response = await api.post('/validate', { token });
+        return response.data;
     },
 
     signin: async (email: string, password: string) => {
-        const res = await api.post('/login', {email, password});
-        return res.data;
+        const response = await api.post('/login', {email, password});
+        return response.data;
     },
 
-    logout: async () => {
-        const res = await api.post('/login');
-        return res.data;
+    signout: async () => {
+        const response = await api.post('/logout');
+        return response.data;
     },
 })

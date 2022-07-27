@@ -12,9 +12,9 @@ function getTokenFromLocalStorage() {
 
 const api = axios.create({
     baseURL: 'https://reqres.in/api',
-         headers:{
-         Authorization: `Bearer ${getTokenFromLocalStorage()} `
-       }
+    headers:{
+        Authorization: `Bearer ${getTokenFromLocalStorage()} `
+        }
     }
 
 );

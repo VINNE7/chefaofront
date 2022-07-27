@@ -33,6 +33,7 @@ export const AuthProvider = (props: IAuthProvaider) => {
 
     const signin = async( email: string, password: string ) => {
         const data = await userApi.signin(email, password);
+        
         if (data.token) {
             setToken(data.token)
             return true
@@ -44,7 +45,7 @@ export const AuthProvider = (props: IAuthProvaider) => {
     const signout = async () => {
         setUSer(null);
         setToken('');
-        await userApi.logout();
+        await userApi.signout();
     } 
 
     

@@ -8,9 +8,9 @@ export default function Home(){
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
 
-  async function handleLogout(){
-    await auth.signout();
-    navigate('/')
+   function handleLogout(){
+    auth.signout();
+    navigate('/login')
   }
 
   return(

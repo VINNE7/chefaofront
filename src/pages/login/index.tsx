@@ -61,7 +61,6 @@ export default function Login() {
         <h1 className="text-oxfordblue text-4xl text-center font-bold">
           Entrar na Conta
         </h1>
-
           <div>
             <label
               className="leading-3 text-left block mb-3 mt-5 text-black text-sm font-extralight"
@@ -72,13 +71,12 @@ export default function Login() {
             <div className="relative ">
               <i className="fa fa-envelope absolute top-1/2 -translate-y-1/2 right-2" />
               <input
-                type='email' required placeholder='Seu melhor email ;)' id='email'
+                type='email' name='email' id='email' required placeholder='Seu melhor email ;)' autoComplete='current-email'
                 className="block box-border w-full rounded-[5px] border border-royalblue py-2 pl-4 pr-6 mb-3  text-sm"
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
             </div>
           </div>
-
           <div>
             <label
               className="leading-3 text-left block mb-3 mt-5 text-black text-sm font-extralight"
@@ -89,7 +87,7 @@ export default function Login() {
             <div className="relative ">
               <i className="fa fa-key absolute top-1/4 -translate-y-1/2 right-2" />
               <input
-                type='password' required placeholder='Digite sua senha' id='password' autoComplete='current-password'
+                type='password' placeholder='Digite sua senha' id='password' autoComplete='current-password' required minLength={8}
                 className="w-full rounded-[5px] border border-royalblue py-2 pl-4 pr-6 mb-7  text-sm"
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               />
