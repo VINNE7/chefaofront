@@ -1,4 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
+import { Link } from "react-router-dom";
 import { segmentsArray } from "./data";
 
 type FormValues = {
@@ -121,11 +122,11 @@ export default function Signup() {
             </div>
           </div>
           <div className="text-center raisinblack text-base font-bold flex-row flex justify-between lg:justify-evenly">
-            <button 
+            <Link to={"/"} 
               className="formButtonBack"
             >
               Voltar
-            </button>
+            </Link>
 
             <input type="submit" className="formButtonForward hover:cursor-pointer" value="Enviar" />
           </div>
@@ -134,3 +135,4 @@ export default function Signup() {
     </div>
   );
 }
+
