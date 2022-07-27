@@ -1,5 +1,6 @@
 import { Routes, Route, Link } from "react-router-dom";
 import { RequireAuth } from "../contexts/Auth/AuthLogin/RequireAuth";
+import MenuHeader from "../components/MenuHeader";
 import FirstStablishmentSignup from "../pages/firstStablishmentSignup";
 import Home from "../pages/homepage";
 import Login from "../pages/login";
@@ -37,6 +38,10 @@ export default function RoutesComponent() {
         path="/menupage"
         element={<MenuPage/>}
       ></Route>
+      <Route 
+        path="/menu"
+        element={<MenuHeader/>}
+        ></Route>
     </Routes>
   );
 }

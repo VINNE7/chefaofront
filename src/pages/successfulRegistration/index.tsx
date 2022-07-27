@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FormButtonBack } from "../../components/buttonBack";
-import FormButtonForward from "../../components/buttonForward";
+import { FormButtonBack } from "../../components/button/buttonBack";
+import FormButtonForward from "../../components/button/buttonForward";
 import Img from "../../assets/images/registerOk.png";
 
 export default function SuccessfulRegistration() {
