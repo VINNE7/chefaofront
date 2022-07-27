@@ -3,6 +3,7 @@ import { RequireAuth } from "../contexts/Auth/AuthLogin/RequireAuth";
 import FirstStablishmentSignup from "../pages/firstStablishmentSignup";
 import Home from "../pages/homepage";
 import Login from "../pages/login";
+import MenuPage from "../pages/MenuPage";
 import SecondStablishmentSignup from "../pages/secondStablishmentSignup";
 import Signup from "../pages/signup";
 import SuccessfulRegistration from "../pages/successfulRegistration";
@@ -31,6 +32,10 @@ export default function RoutesComponent() {
       <Route
         path="/successfulRegistration"
         element={<SuccessfulRegistration />}
+      ></Route>
+      <Route
+        path="/menupage"
+        element={<MenuPage/>}
       ></Route>
     </Routes>
   );
