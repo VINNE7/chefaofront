@@ -36,13 +36,13 @@ export default function MenuHeader() {
               <input
                 type="text"
                 disabled={isEditable === false}
-                className="text-xl px-2 py-1 font-bold text-center leading-[30px] disabled:bg-transparent disabled:border-none disabled:focus:outline-none disabled:text-semiwhite disabled:p-0 "
+                className="text-xl px-2 py-1 rounded-lg font-bold text-center leading-[30px] disabled:bg-transparent disabled:border-none disabled:focus:outline-none disabled:text-semiwhite disabled:p-0 "
                 value={establishmentName}
                 onChange={(e:any)=>setEstablishmentName(e.target.value)}
               />
               
               <input 
-                className="text-sm px-2 py-1 mb-3  disabled:bg-transparent disabled:border-none disabled:focus:outline-none disabled:text-semiwhite disabled:p-0"
+                className="text-sm px-2 py-1 mb-3 rounded-lg  disabled:bg-transparent disabled:border-none disabled:focus:outline-none disabled:text-semiwhite disabled:p-0"
                 disabled={isEditable === false}
                 value={establishmentAddress}
                 onChange={(e)=>setEstablishmentAddress(e.target.value)}
@@ -51,11 +51,11 @@ export default function MenuHeader() {
               
             </form>
               {isEditable ? (
-                <button className="text-sm font-bold text-green-400 border-b-2 leading-6  border-green-400 mb-4" onClick={()=>setIsEditable(state => !state)} >
+                <button className="text-sm font-bold text-green-400 border-b-2 leading-6  border-green-400 mb-4" onClick={()=>setIsEditable(!isEditable)} >
                   Salvar informações
                 </button>
               ) : (
-                <button className="text-sm font-bold text-cyberyellow border-b-2 leading-6  border-cyberyellow mb-4" onClick={()=>setIsEditable(state => !state)} >
+                <button className="text-sm font-bold text-cyberyellow border-b-2 leading-6  border-cyberyellow mb-4" onClick={()=>setIsEditable(!isEditable)} >
                   Editar informações
                 </button>
               )}
