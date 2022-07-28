@@ -23,7 +23,6 @@ export default function RoutesComponent() {
       ></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/signup" element={<Signup />}></Route>
-      <Route path="/cat" element={<Category />}></Route>
       <Route
         path="/firstStablishmentSignup"
         element={<FirstStablishmentSignup />}
