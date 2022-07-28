@@ -2,6 +2,7 @@ import imgCard from "../../assets/icons/img-vector.png";
 import imgEdit from "../../assets/icons/img-edit.png";
 import imgSum from "../../assets/icons/+.png";
 import { useState } from "react";
+import Avatar from "../avatar";
 
 
 export default function MenuHeader() {
@@ -11,27 +12,15 @@ export default function MenuHeader() {
 
   const [isEditable, setIsEditable] = useState(false)
 
+
   
   return (
     <>
-      <div className="min-h-screen w-screen flex flex-col items-center ">
-        <div className="w-screen flex items-center flex-col ">
-          <div className="relative w-screen flex items-center flex-col bg-royaldark rounded-b-2xl shadow-md">
-              <img src={imgCard} className="mt-[50px] absolute" />
-
-            <div className="bg-white p-14 rounded-full mt-[18px]">
-              <div
-                className="flex justify-center items-center bg-semiwhite rounded-full
-              w-10 h-10 absolute bottom-0 top-0 translate-y-[88px] translate-x-[14px]"
-              >
-                <img src={imgEdit} className="" />
-                <img
-                  src={imgSum}
-                  className="absolute translate-y-[10px] translate-x-[8px]"
-                />
-                <input type="file" className="opacity-0 absolute inset-0" accept="image/*" />
-              </div>
-            </div>
+      <div className="w-screen items-center ">
+        <div className=" flex items-center flex-col bg-royaldark rounded-b-2xl shadow-md pt-4">                   
+           
+            <Avatar/>
+            
             <form action="" className="mt-2 text-center flex flex-col justify-center items-center gap-2">
               <input
                 type="text"
@@ -59,8 +48,6 @@ export default function MenuHeader() {
                   Editar informações
                 </button>
               )}
-            
-          </div>
         </div>
       </div>
     </>
