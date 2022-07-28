@@ -1,16 +1,13 @@
-import { FormEvent, useCallback, useState, useContext } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { FormEvent, useCallback, useState, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
 import { AuthContext } from '../../contexts/Auth/AuthLogin/AuthContext';
-
-import api from '../../services/api'
-import Logo from '../../assets/images/logo.png'
+import { IFormInputs, User } from '../../types/User';
 
 
+import Logo from '../../assets/images/logo.png';
+import { AxiosError } from 'axios';
 
-interface IFormInputs {
-  email: string;
-  password: string;
-};
 
 export default function Login() {
 
@@ -20,33 +17,28 @@ export default function Login() {
   });
 
   const auth = useContext(AuthContext);
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   const handleFormSubmit = useCallback(async (event: FormEvent) => {
-    event.preventDefault()
-    const { email, password } = formData;
+    try {
+      event.preventDefault()
+      const { email, password } = formData;
 
-    if (email && password) {
-      const isLogged = await auth.signin(email, password)
-      console.log("login", isLogged);
-      
-      if (isLogged) {
-        navigate('/')
-      } else {
-        alert('Email ou senha incorreto.')
+      if (email && password) {
+        const isLogged = await auth.signin(email, password)
+
+        if (isLogged) {
+          navigate('/');
+        }
+      }
+
+    } catch (error) {
+      const errorAxios = error as AxiosError
+      if(errorAxios.response?.status === 400){
+        alert('Erraddooo')
       }
     }
-
-    const data = {
-      email,
-      password
-    };
-    console.log("handle Submit", data);
-    
-    await api.post('/login', data)
   }, [formData]);
-
 
   return (
     <>
@@ -58,9 +50,9 @@ export default function Login() {
           onSubmit={handleFormSubmit}
           className="w-screen max-w-[480px] m-0 p-3 "
         >
-        <h1 className="text-oxfordblue text-4xl text-center font-bold">
-          Entrar na Conta
-        </h1>
+          <h1 className="text-oxfordblue text-4xl text-center font-bold">
+            Entrar na Conta
+          </h1>
           <div>
             <label
               className="leading-3 text-left block mb-3 mt-5 text-black text-sm font-extralight"
@@ -91,6 +83,7 @@ export default function Login() {
                 className="w-full rounded-[5px] border border-royalblue py-2 pl-4 pr-6 mb-7  text-sm"
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               />
+
             </div>
           </div>
           <div className='text-center'>

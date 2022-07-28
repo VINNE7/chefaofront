@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import Login from "../../../pages/login";
 import { AuthContext } from "./AuthContext";
+import Home from "../../../pages/homepage";
 
 type IProps = {
     children: JSX.Element;
@@ -9,8 +9,8 @@ type IProps = {
 export const RequireAuth = (props: IProps) => {
     const auth = useContext(AuthContext); 
 
-    if (!auth.user) {
-        return <Login/>
+    if (auth.user) {
+        return <Home/>
     }
 
     return (

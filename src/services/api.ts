@@ -14,9 +14,8 @@ const api = axios.create({
     baseURL: 'https://reqres.in/api',
     headers:{
         Authorization: `Bearer ${getTokenFromLocalStorage()} `
-        }
     }
 
-);
+});
 
 export default api;
