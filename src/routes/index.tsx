@@ -7,6 +7,7 @@ import Login from "../pages/login";
 import SecondStablishmentSignup from "../pages/secondStablishmentSignup";
 import Signup from "../pages/signup";
 import SuccessfulRegistration from "../pages/successfulRegistration";
+import { Category } from "../components/Category";
 
 export default function RoutesComponent() {
   return (
@@ -25,6 +26,7 @@ export default function RoutesComponent() {
       <Route path="/secondStablishmentSignup" element={<SecondStablishmentSignup />}></Route>
       <Route path="/successfulRegistration" element={<SuccessfulRegistration />}></Route>
       <Route path="/menu" element={<MenuHeader />}></Route>
+      <Route path="/cat" element={<Category />}></Route>
     </Routes>
   );
 }
