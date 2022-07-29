@@ -17,11 +17,14 @@ export default function MenuPage() {
           <h2 className="text-raisinblack text-xl font-bold my-10">
             Nome da Categoria
           </h2>
+          <button>
           <img
             className="w-[21px] h-[18px]"
             src={imgPen}
             alt="icone para modificar pedido"
           />
+          </button>
+
         </div>
         <div className="flex justify-center itemx-center ">
           <Category />
