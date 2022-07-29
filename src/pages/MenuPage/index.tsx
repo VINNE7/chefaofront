@@ -11,7 +11,7 @@ export default function MenuPage() {
       <div className="mx-8 ">
         <h2 className="text-raisinblack text-xl font-bold my-4 ">Categorias</h2>
         <div>
-          <SubCategory />
+          
         </div>
         <div className="flex justify-between items-center">
           <h2 className="text-raisinblack text-xl font-bold my-10">
@@ -27,7 +27,7 @@ export default function MenuPage() {
 
         </div>
         <div className="flex justify-center itemx-center ">
-          <Category />
+          <SubCategory />
         </div>
       </div>
     </div>
