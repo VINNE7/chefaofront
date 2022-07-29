@@ -14,9 +14,6 @@ export default function AddCategory() {
         onClick={addCateg}
         className="bg-[#001B42] shadow-md flex w-36 rounded-lg p-4 gap-1 items-center object-cover "
       >
-        {addSubcategory.map((category) => (
-          <p>Teste</p>
-        ))}
         <span className="bg-[#001B42] shadow-md text-[#FAFAFA]">
           Adicionar Categorias{" "}
         </span>

@@ -1,11 +1,11 @@
-import Category from "../../components/CategoryCarrossel";
-import Plus from "../../assets/icons/Vector.png"
-import CategoryCarrossel from "../../components/CategoryCarrossel";
+
+import Category from "../../components/Category";
 
 export default function MenuPage(){
     return(
         <>
-            <CategoryCarrossel />
+            <Category />
+            
         </>
         
     )
