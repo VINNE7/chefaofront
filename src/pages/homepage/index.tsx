@@ -1,4 +1,4 @@
-import FormButton from "../../components/button";
+
 import { useContext } from 'react';
 import { AuthContext } from "../../contexts/Auth/AuthLogin/AuthContext";
 import { useNavigate } from 'react-router-dom';
@@ -25,7 +25,7 @@ export default function Home(){
     <a href="/firstStablishmentSignup">Primeiro Cadastro de Estabelecimento</a>
     <a href="/secondStablishmentSignup">Segunda Página Cadastro de Estabelecimento</a> 
     {auth.user && <a href="/login" onClick={handleLogout}>Sair</a>}
-    <FormButton buttonLabel="Enviar"/>
+    <input type="submit" className="formButtonForward hover:cursor-pointer" value="Enviar" />
     </div>
   )
 }
