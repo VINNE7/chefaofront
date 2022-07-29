@@ -30,7 +30,12 @@ export default function Avatar (){
         htmlFor="editImage"
         className="absolute pl-1 right-0 bottom-0 w-11 h-11 bg-ghostwhite rounded-full drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] grid place-items-center">
         <EditImageIcon/>
-        <input hidden type="file" accept="image/*" id="editImage" onChange={handleImageSelect} />
+        <input
+          type="file"
+          accept="image/*"
+          id="editImage"
+          onChange={handleImageSelect}
+          className="absolute inset-0 opacity-0" />
       </label>
     </div>
   )
