@@ -1,3 +1,4 @@
+
 import MenuHeader from "../../components/MenuHeader";
 import imgPen from "../../assets/icons/pen.png";
 import { SubCategory } from "../../components/Subcategory";
@@ -29,6 +30,7 @@ export default function MenuPage() {
         <div className="my-10">
           <ButtonDelete />
         </div>
+
       </div>
     </div>
   );
