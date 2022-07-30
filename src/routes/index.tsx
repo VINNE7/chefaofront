@@ -8,7 +8,7 @@ import MenuPage from "../pages/MenuPage";
 import SecondStablishmentSignup from "../pages/secondStablishmentSignup";
 import Signup from "../pages/signup";
 import SuccessfulRegistration from "../pages/successfulRegistration";
-import { Category } from "../components/Category";
+
 
 export default function RoutesComponent() {
   return (
