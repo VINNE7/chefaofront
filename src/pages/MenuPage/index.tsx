@@ -29,6 +29,7 @@ export default function MenuPage() {
         <div className="my-10">
           <ButtonDelete />
         </div>
+
       </div>
     </div>
   );
