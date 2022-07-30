@@ -23,8 +23,8 @@ export default function Avatar (){
   }
 
   return(
-    <div className="w-28 h-28 bg-white rounded-full relative flex items-center justify-center">
-      <img src={image??imgCard} className="w-[110px] h-[110px] rounded-full object-cover object-center" />
+    <div className=" relative flex items-center justify-center">
+      <img src={image??imgCard} className="w-[112px] h-[112px] rounded-full object-cover object-center" />
 
       <label 
         htmlFor="editImage"
