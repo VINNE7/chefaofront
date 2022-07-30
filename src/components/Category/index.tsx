@@ -4,7 +4,23 @@ import Drop from "../../assets/icons/drop.png";
 import Plus from "../../assets/icons/Vector.png";
 import { useState } from "react";
 
+interface Newcard{
+  id: number
+  title: string
+}
+
 export default function Category() {
+  const [cards, setCards] = useState(["Pizza"]);
+  const [subcards, setSubcards] = useState([]);
+  const [isEditable, setIsEditable] = useState(false);
+  const [editable, setEditable] = useState(false);
+  const [establishmentName, setEstablishmentName] =
+    useState("Nome da Categoria");
+  const [establishmentSubcategory, setestablishmentSubcategory] =
+    useState([{title: "Nova Subcategoria", id: Math.random()}]);
+  const [establishmentSubcategoryTitle, setestablishmentSubcategoryTitle] =
+    useState("Nome da Subcategoria");
+
 
   function createSubcategorycard(){
     if(!establishmentSubcategoryTitle) return //impedindo que uma pessoa crie um card sem nome
@@ -16,19 +32,11 @@ export default function Category() {
   }
 
   function editSubcategory(id: number){
-    
+    const filteredSubcategories = establishmentSubcategory.filter((eSubcategory) => eSubcategory.id != id)
+    setestablishmentSubcategory(filteredSubcategories) //filtrando as subcategories que possuem um id diferente da que vc clicou
   }
 
-  const [cards, setCards] = useState(["Pizza"]);
-  const [subcards, setSubcards] = useState([""]);
-  const [isEditable, setIsEditable] = useState(false);
-  const [editable, setEditable] = useState(false);
-  const [establishmentName, setEstablishmentName] =
-    useState("Nome da Categoria");
-  const [establishmentSubcategory, setestablishmentSubcategory] =
-    useState("Nome da Subcategoria");
-  const [establishmentSubcategoryTitle, setestablishmentSubcategoryTitle] =
-    useState("Nome da Subcategoria");
+  
   return (
     <>
       <div className="text-[#24252E] text-xl font-bold p-4">
@@ -64,17 +72,17 @@ export default function Category() {
         </button>
       </div>
       <div className="pl-4">
-        {subcards.map((subcard) => (
+        {subcards.map((subcard: Newcard ) => (
           <div className="bg-oxfordblue p-6 justify-between  rounded-lg shadow-md w-80 flex text-center mb-1 ">
             <div className="text-left ">
               <input
                 className="bg-oxfordblue font-bold w-36 text-base   leading-6 text-semiwhite"
                 type="text"
                 disabled={editable === false}
-                value={establishmentSubcategory}
+                value={establishmentSubcategoryTitle}
                 onChange={(e: any) => setestablishmentSubcategory(e.target.value)}
               />
-              <button onClick={createSubcategorycard}>
+              <button onClick={() =>editSubcategory(subcard.id)}>
                 <img className="" src={Editsub} alt="teste" />
               </button>
             </div>
@@ -86,9 +94,7 @@ export default function Category() {
           </div>
         ))}
         <button
-          onClick={() =>
-            setSubcards((state) => [...state, "Nova Subcategoria"])
-          }
+          onClick={ () => createSubcategorycard()}
           className="bg-[#001B42] shadow-md flex w-80 rounded-lg p-4 gap-1 items-center object-cover mt-6 "
         >
           <span className="bg-[#001B42] shadow-md text-[#FAFAFA] ">
