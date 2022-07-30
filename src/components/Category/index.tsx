@@ -5,12 +5,29 @@ import Plus from "../../assets/icons/Vector.png";
 import { useState } from "react";
 
 export default function Category() {
+
+  function createSubcategorycard(){
+    if(!establishmentSubcategoryTitle) return //impedindo que uma pessoa crie um card sem nome
+    const newSubcard = {
+      id: Math.random(),
+      title: establishmentSubcategoryTitle
+    }
+    setestablishmentSubcategory([...establishmentSubcategory,newSubcard]) //chamando todos cards e add um novo card sem interferencia
+  }
+
+  function editSubcategory(id: number){
+    
+  }
+
   const [cards, setCards] = useState(["Pizza"]);
   const [subcards, setSubcards] = useState([""]);
   const [isEditable, setIsEditable] = useState(false);
+  const [editable, setEditable] = useState(false);
   const [establishmentName, setEstablishmentName] =
     useState("Nome da Categoria");
-    const [establishmentSubcategory, setestablishmentSubcategory] =
+  const [establishmentSubcategory, setestablishmentSubcategory] =
+    useState("Nome da Subcategoria");
+  const [establishmentSubcategoryTitle, setestablishmentSubcategoryTitle] =
     useState("Nome da Subcategoria");
   return (
     <>
@@ -53,11 +70,11 @@ export default function Category() {
               <input
                 className="bg-oxfordblue font-bold w-36 text-base   leading-6 text-semiwhite"
                 type="text"
-                disabled={isEditable === false}
+                disabled={editable === false}
                 value={establishmentSubcategory}
                 onChange={(e: any) => setestablishmentSubcategory(e.target.value)}
               />
-              <button onClick={() => setIsEditable(!isEditable)}>
+              <button onClick={createSubcategorycard}>
                 <img className="" src={Editsub} alt="teste" />
               </button>
             </div>
