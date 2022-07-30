@@ -5,11 +5,13 @@ import Plus from "../../assets/icons/Vector.png";
 import { useState } from "react";
 
 export default function Category() {
-  const [cards, setCards] = useState(["pizzas"]);
-  const [subcards, setSubcards] = useState(["Tradicionais"]);
+  const [cards, setCards] = useState(["Pizza"]);
+  const [subcards, setSubcards] = useState([""]);
   const [isEditable, setIsEditable] = useState(false);
   const [establishmentName, setEstablishmentName] =
     useState("Nome da Categoria");
+    const [establishmentSubcategory, setestablishmentSubcategory] =
+    useState("Nome da Subcategoria");
   return (
     <>
       <div className="text-[#24252E] text-xl font-bold p-4">
@@ -17,13 +19,14 @@ export default function Category() {
       </div>
       <div className="flex  gap-4 overflow-x-auto scroll-smooth  p-4">
         {cards.map((card) => (
-          <div className="bg-cyberyellow p-6  rounded-lg shadow-md w-36 flex justify-center">
-            <h3 className="font-bold text-base leading-6">{card}</h3>
-          </div>
+            <button 
+              className="font-bold text-base leading-6 bg-cyberyellow p-[30px]  rounded-lg shadow-md w-full max-w-[160px] flex justify-center">
+              {card}
+            </button>
         ))}
         <button
           onClick={() => setCards((state) => [...state, "Nova categoria"])}
-          className="bg-[#001B42] shadow-md flex w-36 rounded-lg p-4 gap-1 items-center object-cover "
+          className="bg-[#001B42] shadow-md flex w-full max-w-[160px] rounded-lg p-[30px] gap-1 items-center object-cover "
         >
           <span className="bg-[#001B42] shadow-md text-[#FAFAFA]">
             Adicionar Categorias{" "}
@@ -45,13 +48,14 @@ export default function Category() {
       </div>
       <div className="pl-4">
         {subcards.map((subcard) => (
-          <div className="bg-oxfordblue p-6  rounded-lg shadow-md w-80 flex text-center mb-1 ">
+          <div className="bg-oxfordblue p-6 justify-between  rounded-lg shadow-md w-80 flex text-center mb-1 ">
             <div className="text-left ">
               <input
                 className="bg-oxfordblue font-bold w-36 text-base   leading-6 text-semiwhite"
                 type="text"
                 disabled={isEditable === false}
-                value={subcard}
+                value={establishmentSubcategory}
+                onChange={(e: any) => setestablishmentSubcategory(e.target.value)}
               />
               <button onClick={() => setIsEditable(!isEditable)}>
                 <img className="" src={Editsub} alt="teste" />
