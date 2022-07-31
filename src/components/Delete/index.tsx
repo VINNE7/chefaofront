@@ -34,7 +34,7 @@ export function ButtonDelete() {
                     >
                       Cancelar
                     </button>
-                    <Link to={"/login"}>
+                    <Link to={"/menu"}>
                       <button
                         className="formButtonForwardMax font-bold text-[16px]"
                         type="button"
