@@ -1,9 +1,9 @@
 import imgVector from "../../assets/images/img-menu.png";
 
-export function Add() {
+export function Item() {
   return (
     <>
-      <button className="w-full h-[106px] bg-royaldark flex-row flex justify-between items-center hover:cursor-pointer ">
+      <button className="w-full h-[106px] bg-royaldark flex-row rounded-b-lg flex justify-between items-center hover:cursor-pointer ">
         <div className="flex flex-col items-start gap-4">
           <h1 className="text-white text-sm font-bold leading-[22px] ml-[8px]">
             Moda da Casa
