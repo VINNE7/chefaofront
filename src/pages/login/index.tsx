@@ -1,13 +1,8 @@
 import { FormEvent, useCallback, useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
 import { AuthContext } from '../../contexts/Auth/AuthLogin/AuthContext';
-import { IFormInputs, User } from '../../types/User';
-
-
+import { IFormInputs } from '../../types';
 import Logo from '../../assets/images/logo.png';
-import { AxiosError } from 'axios';
-
 
 export default function Login() {
 
@@ -20,24 +15,15 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleFormSubmit = useCallback(async (event: FormEvent) => {
-    try {
-      event.preventDefault()
-      const { email, password } = formData;
 
-      if (email && password) {
-        const isLogged = await auth.signin(email, password)
+    event.preventDefault()
+    const { email, password } = formData;
+    const isLogged = await auth.signin(email, password)
 
-        if (isLogged) {
-          navigate('/');
-        }
-      }
-
-    } catch (error) {
-      const errorAxios = error as AxiosError
-      if(errorAxios.response?.status === 400){
-        alert('Erraddooo')
-      }
+    if (isLogged) {
+      navigate('/');
     }
+
   }, [formData]);
 
   return (
