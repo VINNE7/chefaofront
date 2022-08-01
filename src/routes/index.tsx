@@ -1,6 +1,5 @@
 import { Routes, Route, Link } from "react-router-dom";
 import { RequireAuth } from "../contexts/Auth/AuthLogin/RequireAuth";
-import MenuHeader from "../components/MenuHeader";
 import FirstStablishmentSignup from "../pages/firstStablishmentSignup";
 import Home from "../pages/homepage";
 import Login from "../pages/login";
@@ -8,7 +7,6 @@ import MenuPage from "../pages/MenuPage";
 import SecondStablishmentSignup from "../pages/secondStablishmentSignup";
 import Signup from "../pages/signup";
 import SuccessfulRegistration from "../pages/successfulRegistration";
-import { Category } from "../components/Category";
 
 export default function RoutesComponent() {
   return (
@@ -35,9 +33,7 @@ export default function RoutesComponent() {
         path="/successfulRegistration"
         element={<SuccessfulRegistration />}
       ></Route>
-      <Route path="/menupage" element={<MenuPage />}></Route>
-      <Route path="/menu" element={<MenuHeader />}></Route>
-      in
+      <Route path="/menu" element={<MenuPage />}></Route>
     </Routes>
   );
 }
