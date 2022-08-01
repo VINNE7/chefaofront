@@ -12,16 +12,17 @@ export const AuthProvider = (props: IAuthProvaider) => {
     const setToken = (token: string) => {
         localStorage.setItem('authToken', token);
     }
-    
+
     useEffect(() => {
 
         const validateToken = async () => {
             const storageData = localStorage.getItem('authToken');
-            if (storageData === null) {
-                return undefined;
+            console.log(storageData);
+            
+            if (storageData) {
+                setToken(storageData);
             }
-            setToken(storageData);
-            return storageData
+            return undefined;
         };
 
         validateToken();
@@ -31,8 +32,10 @@ export const AuthProvider = (props: IAuthProvaider) => {
 
     const signin = async (email: string, password: string) => {
         const data = await useRequisicao.signin(email, password);
+        console.log(data);
+        
 
-        if (data == null) {
+        if (!data) {
             return false;
         }
 
