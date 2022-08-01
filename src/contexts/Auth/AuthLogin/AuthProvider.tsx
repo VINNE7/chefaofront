@@ -34,11 +34,11 @@ export const AuthProvider = (props: IAuthProvaider) => {
         const data = await useRequisicao.signin(email, password);
         console.log(data);
         
-
         if (!data) {
             return false;
         }
-
+        
+        setToken(data);
         return true;
     }
 
