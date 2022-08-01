@@ -2,7 +2,7 @@ import api from "./api";
 
 export const requisicaoLogin = () => ({
     signin: async (email: string, password: string) => {
-        const res = await api.post('/login', {email, password});        
+        const res = await api.post('/login', {email, senha: password});        
         return res.data;
     },
 
