@@ -2,7 +2,7 @@ import Edit from "../../assets/icons/edit.png";
 import Editsub from "../../assets/icons/editsub.png";
 import Drop from "../../assets/icons/drop.png";
 import Plus from "../../assets/icons/Vector.png";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function Category() {
   const [cards, setCards] = useState(["Pizza"]);
@@ -10,8 +10,15 @@ export default function Category() {
   const [isEditable, setIsEditable] = useState(false);
   const [establishmentName, setEstablishmentName] =
     useState("Nome da Categoria");
-    const [establishmentSubcategory, setestablishmentSubcategory] =
-    useState("Nome da Subcategoria");
+  const [establishmentSubcategory, setestablishmentSubcategory] = useState(
+    "Nome da Subcategoria"
+  );
+
+  const [isActive, setIsActive] = useState(false);
+  const onClik = () => setIsActive(!isActive);
+
+  console.log(isActive);
+
   return (
     <>
       <div className="text-[#24252E] text-xl font-bold p-4">
@@ -19,10 +26,9 @@ export default function Category() {
       </div>
       <div className="flex  gap-4 overflow-x-auto scroll-smooth  p-4">
         {cards.map((card) => (
-            <button 
-              className="font-bold text-base leading-6 bg-cyberyellow p-[30px]  rounded-lg shadow-md w-full max-w-[160px] flex justify-center">
-              {card}
-            </button>
+          <button className="font-bold text-base leading-6 bg-cyberyellow p-[30px]  rounded-lg shadow-md w-full max-w-[160px] flex justify-center">
+            {card}
+          </button>
         ))}
         <button
           onClick={() => setCards((state) => [...state, "Nova categoria"])}
@@ -55,19 +61,29 @@ export default function Category() {
                 type="text"
                 disabled={isEditable === false}
                 value={establishmentSubcategory}
-                onChange={(e: any) => setestablishmentSubcategory(e.target.value)}
+                onChange={(e: any) =>
+                  setestablishmentSubcategory(e.target.value)
+                }
               />
               <button onClick={() => setIsEditable(!isEditable)}>
                 <img className="" src={Editsub} alt="teste" />
               </button>
             </div>
             <div className="flex">
-              <button>
+              <button onClick={onClik}>
                 <img className="" src={Drop} alt="" />
               </button>
             </div>
           </div>
         ))}
+        {isActive && (
+          <div className="drop">
+            <button className="bg-[#001B42] w-[320px] rounded-lg p-4 text-[#FAFAFA] ">
+              Adicionar Item
+            </button>
+          </div>
+        )}
+
         <button
           onClick={() =>
             setSubcards((state) => [...state, "Nova Subcategoria"])
