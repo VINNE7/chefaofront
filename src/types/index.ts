@@ -4,17 +4,17 @@ export interface IFormInputs {
 };
 
 export type User = {
-    id: number;
+    id?: number;
     name?: string;
     email: string;
-    password: string;
+    senha: string;
     token?: string;
 }
 
 export type  AuthContextType = {
     user: User | null;
     signin: (email: string, password: string) => Promise<boolean>;
-    signout: () => Promise<void>;
+    signout: () => void;
 }
 
 export interface IAuthProvaider {

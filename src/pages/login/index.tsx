@@ -21,7 +21,7 @@ export default function Login() {
     const isLogged = await auth.signin(email, password)
 
     if (isLogged) {
-      navigate('/');
+     return navigate('/');
     }
 
   }, [formData]);

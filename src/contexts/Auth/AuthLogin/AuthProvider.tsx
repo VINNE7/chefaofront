@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { IAuthProvaider, User } from "../../../types";
-import { requisicaoLogin } from "../../../services/requisicoesLogin";
+import { requisicaoLogin } from "../../../services/requisicoes";
 import { AuthContext } from "./AuthContext";
 
 
@@ -17,8 +17,6 @@ export const AuthProvider = (props: IAuthProvaider) => {
 
         const validateToken = async () => {
             const storageData = localStorage.getItem('authToken');
-            console.log(storageData);
-            
             if (storageData) {
                 setToken(storageData);
             }
@@ -32,20 +30,15 @@ export const AuthProvider = (props: IAuthProvaider) => {
 
     const signin = async (email: string, password: string) => {
         const data = await useRequisicao.signin(email, password);
-        console.log(data);
-        
-        if (!data) {
-            return false;
-        }
-        
+        if (!data) return false;
+        setUSer(data)
         setToken(data);
-        return true;
+        return true
     }
 
-    const signout = async () => {
+    const signout = () => {
         setUSer(null);
         setToken('');
-        await useRequisicao.logout();
     }
 
     return (
