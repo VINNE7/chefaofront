@@ -1,8 +1,7 @@
 import imgCard from "../../assets/icons/img-vector.png";
-import imgEdit from "../../assets/icons/img-edit.svg";
-import EditIcon from "../icons/editIcon";
 import EditImageIcon from "../icons/editImageIcon";
 import { ChangeEventHandler, useState } from "react";
+import axios from "axios";
 
 export default function Avatar (){
 
@@ -19,11 +18,23 @@ export default function Avatar (){
     }
 
     reader.readAsDataURL(file)
+    
+    sendImage(file);
+
     }
   }
 
+  const sendImage = async (file:File) => {
+    const formData = new FormData();
+
+    formData.append("avatar", file)
+
+    console.log(formData.get("avatar"));
+    // const response = await axios.post("baseurl", formData);
+  }
+
   return(
-    <div className="w-28 h-28 bg-white rounded-full relative flex items-center justify-center">
+    <div className="w-28 h-28 bg-white rounded-full  relative flex items-center justify-center">
       <img src={image??imgCard} className="w-[110px] h-[110px] rounded-full object-cover object-center" />
 
       <label 
