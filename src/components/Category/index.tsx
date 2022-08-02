@@ -1,46 +1,20 @@
 import Edit from "../../assets/icons/edit.png";
-import Editsub from "../../assets/icons/editsub.png";
-import Drop from "../../assets/icons/drop.png";
 import Plus from "../../assets/icons/Vector.png";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 interface Newcard {
   id : number;
   title : string;
   isEditing : boolean;
 }
+
 // para criar o card das subcategorias elas precisam ter vínculo com as categorias. como fazer isso?
 // provavelmente vai ter uma nova chave dentro de NewCard que vai ser um array de subcategorias
 export default function Category() {
   const [cards, setCards] = useState<Newcard[]>([]);
-  const [subcards, setSubcards] = useState([]);
+  const [editCard, setEditCard] = useState<Newcard["id"]>()
   const [isEditable, setIsEditable] = useState(false);
   const [editable, setEditable] = useState(false);
-  const [establishmentSubcategory, setestablishmentSubcategory] = useState([
-    {
-      title: "Nova Subcategoria",
-      id: Math.random(),
-      isEditing: false,
-    },
-  ]);
-  // const [establishmentSubcategoryTitle, setestablishmentSubcategoryTitle] =
-  //   useState("Nome da Subcategoria");
-
-  // function createSubcategorycard() {
-  //   if (!establishmentSubcategoryTitle) return; //impedindo que uma pessoa crie um card sem nome
-  //   const newSubcard = {
-  //     id: Math.random(),
-  //     title: establishmentSubcategoryTitle,
-  //   };
-  //   setestablishmentSubcategory([...establishmentSubcategory, newSubcard]); //chamando todos cards e add um novo card sem interferencia
-  // }
-
-  function editSubcategory(id: number) {
-    const filteredSubcategories = establishmentSubcategory.filter(
-      (eSubcategory) => eSubcategory.id != id
-    );
-    setestablishmentSubcategory(filteredSubcategories); //filtrando as subcategories que possuem um id diferente da que vc clicou
-  }
 
   const handleAddCard = useCallback(() => {
     let newCards = [...cards]; // reproduzo os cards anteriores
@@ -61,11 +35,11 @@ export default function Category() {
   }, [cards, setCards]);
 
   const handleChangeCardTitle = useCallback(
-    (value: string) => {
+    (value: any) => {
       let newCards = [...cards]; // reproduz o array do estado atual
       if (newCards.find((card) => card.isEditing === true)) {
         // se tem um card que está em modo edição
-        newCards.find((card) => card.isEditing === true).title = value; // vc altera o valor do título dele, de acordo com o value que recebe do event.target
+        newCards.find((card) => card.isEditing === true)!.title = value; // vc altera o valor do título dele, de acordo com o value que recebe do event.target
       }
 
       setCards(newCards);
@@ -84,7 +58,7 @@ export default function Category() {
         isEditing: false,
       }));
 
-      newCards.find((card) => card.id === currentCard.id).isEditing = true; // depois que todos estão false, eu comparo o id com o currentCard.id e mudo o is editing para true
+      newCards.find((card) => card.id === currentCard.id)!.isEditing = true; // depois que todos estão false, eu comparo o id com o currentCard.id e mudo o is editing para true
 
       setCards(newCards);
     },
@@ -101,7 +75,8 @@ export default function Category() {
           <button
             key={card.id}
             className="font-bold text-base leading-6 bg-cyberyellow p-[30px]  rounded-lg shadow-md w-full max-w-[160px] flex justify-center"
-            onClick={() => handleSetCurrentCardOnEdit(card)} // esse botão muda qual card está sendo editado
+            onClick={() => handleSetCurrentCardOnEdit(card) } // esse botão muda qual card está sendo editado
+            
           >
             {card.title}
           </button>
@@ -128,42 +103,6 @@ export default function Category() {
           <img src={Edit} alt="" />
         </button>
       </div>
-      <div className="pl-4">
-        {subcards.map((subcard: Newcard) => (
-          <div className="bg-oxfordblue p-6 justify-between  rounded-lg shadow-md w-80 flex text-center mb-1 ">
-            <div className="text-left ">
-              <input
-                className="bg-oxfordblue font-bold w-36 text-base   leading-6 text-semiwhite"
-                type="text"
-                disabled={editable === false}
-                value={establishmentSubcategoryTitle}
-                onChange={(e: any) =>
-                  setestablishmentSubcategory(e.target.value)
-                }
-              />
-              <button onClick={() => editSubcategory(subcard.id)}>
-                <img className="" src={Editsub} alt="teste" />
-              </button>
-            </div>
-            <div className="flex">
-              <button>
-                <img className="" src={Drop} alt="" />
-              </button>
-            </div>
-          </div>
-        ))}
-        <button
-          onClick={() => createSubcategorycard()}
-          className="bg-[#001B42] shadow-md flex w-80 rounded-lg p-4 gap-1 items-center object-cover mt-6 "
-        >
-          <span className="bg-[#001B42] shadow-md text-[#FAFAFA] ">
-            Adicionar subcategoria{" "}
-          </span>
-          <div className="text-right ">
-            <img className="flex items-end" src={Plus} alt="" />
-          </div>
-        </button>
-      </div>
-    </>
+      </>
   );
 }
