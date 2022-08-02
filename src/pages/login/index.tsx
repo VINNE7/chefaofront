@@ -8,7 +8,7 @@ export default function Login() {
 
   const [formData, setFormData] = useState<IFormInputs>({
     email: '',
-    password: '',
+    senha: '',
   });
 
   const auth = useContext(AuthContext);
@@ -17,11 +17,12 @@ export default function Login() {
   const handleFormSubmit = useCallback(async (event: FormEvent) => {
 
     event.preventDefault()
-    const { email, password } = formData;
-    const isLogged = await auth.signin(email, password)
-
+    const { email, senha } = formData;
+    const isLogged = await auth.signin(email, senha)
     if (isLogged) {
-     return navigate('/');
+        if (email && senha) {
+        return navigate('/');
+      }
     }
 
   }, [formData]);
@@ -67,7 +68,7 @@ export default function Login() {
               <input
                 type='password' placeholder='Digite sua senha' id='password' autoComplete='current-password' required minLength={8}
                 className="w-full rounded-[5px] border border-royalblue py-2 pl-4 pr-6 mb-7  text-sm"
-                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                onChange={(e) => setFormData({ ...formData, senha: e.target.value })}
               />
 
             </div>

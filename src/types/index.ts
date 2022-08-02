@@ -1,6 +1,6 @@
 export interface IFormInputs {
     email: string;
-    password: string;
+    senha: string;
 };
 
 export type User = {

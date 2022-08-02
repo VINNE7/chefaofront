@@ -23,7 +23,7 @@ export const AuthProvider = (props: IAuthProvaider) => {
             return undefined;
         };
 
-        validateToken();
+        // validateToken();
 
     }, []);
 

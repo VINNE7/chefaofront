@@ -8,7 +8,7 @@ export default function Home() {
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
 
-  function handleLogout(event: any) {
+  function handleLogout(event:  React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
     auth.signout();
     navigate('/login')
