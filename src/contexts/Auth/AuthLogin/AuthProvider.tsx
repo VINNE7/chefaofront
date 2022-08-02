@@ -17,13 +17,14 @@ export const AuthProvider = (props: IAuthProvaider) => {
 
         const validateToken = async () => {
             const storageData = localStorage.getItem('authToken');
-            if (storageData) {
-                setToken(storageData);
+            
+            if (storageData){
+               setToken(storageData)
             }
             return undefined;
         };
 
-        // validateToken();
+        validateToken();
 
     }, []);
 
