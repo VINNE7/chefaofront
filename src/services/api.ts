@@ -4,7 +4,6 @@ const api = axios.create({
     baseURL: 'https://gama-menu.herokuapp.com',
     headers:{
         contentType: 'application/json',
-        accept: 'application/json',
     }
 });
 

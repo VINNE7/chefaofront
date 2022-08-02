@@ -3,10 +3,10 @@ import { IAuthProvaider, User } from "../../../types";
 import { requisicaoLogin } from "../../../services/requisicoes";
 import { AuthContext } from "./AuthContext";
 
-
 export const AuthProvider = (props: IAuthProvaider) => {
 
-    const [user, setUSer] = useState<User | null>(null);
+    const [user, setUser] = useState<User | null>(null);
+    // const [loading, setLoading] = useState(true);
     const useRequisicao = requisicaoLogin();
 
     const setToken = (token: string) => {
@@ -17,11 +17,8 @@ export const AuthProvider = (props: IAuthProvaider) => {
 
         const validateToken = async () => {
             const storageData = localStorage.getItem('authToken');
-            
-            if (storageData){
-               setToken(storageData)
-            }
-            return undefined;
+            if (!storageData) return undefined;
+            setToken(storageData);
         };
 
         validateToken();
@@ -32,13 +29,13 @@ export const AuthProvider = (props: IAuthProvaider) => {
     const signin = async (email: string, password: string) => {
         const data = await useRequisicao.signin(email, password);
         if (!data) return false;
-        setUSer(data)
+        setUser(data)
         setToken(data);
         return true
     }
 
     const signout = () => {
-        setUSer(null);
+        setUser(null);
         setToken('');
     }
 
