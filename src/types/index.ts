@@ -17,6 +17,6 @@ export type  AuthContextType = {
     signout: () => void;
 }
 
-export interface IAuthProvaider {
+export interface IAuthProvider {
     children: JSX.Element;
 }

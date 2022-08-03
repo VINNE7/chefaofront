@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { IAuthProvaider, User } from "../../../types";
+import { IAuthProvider, User } from "../../../types";
 import { requisicaoLogin } from "../../../services/requisicoes";
 import { AuthContext } from "./AuthContext";
-import Home from "../../../pages/homepage";
 
-export const AuthProvider = (props: IAuthProvaider) => {
+export const AuthProvider = (props: IAuthProvider) => {
 
     const [user, setUser] = useState<User | null>(null);
     // const [loading, setLoading] = useState(true);

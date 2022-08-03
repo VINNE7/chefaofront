@@ -15,7 +15,6 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleFormSubmit = useCallback(async (event: FormEvent) => {
-
     event.preventDefault()
     const { email, senha } = formData;
     const isLogged = await auth.signin(email, senha)
