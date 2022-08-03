@@ -4,7 +4,6 @@ import imgPen from "../../assets/icons/pen.png";
 import { SubCategory } from "../../components/Subcategory";
 import Category from "../../components/Category";
 
-
 export default function MenuPage() {
   return (
     <div className="grid gap-4 ">
@@ -12,7 +11,7 @@ export default function MenuPage() {
 
       <div className="mx-8 ">
         <h2 className="text-raisinblack text-xl font-bold my-4 ">Categorias</h2>
-<Category />
+        <Category />
         <div className="flex justify-between items-center">
           <h2 className="text-raisinblack text-xl font-bold my-10">
             Nome da Categoria
@@ -29,9 +28,7 @@ export default function MenuPage() {
         <div className="flex justify-center itemx-center ">
           <SubCategory />
         </div>
-        <div className="my-10">
-
-        </div>
+        <div className="my-10"></div>
       </div>
     </div>
   );
