@@ -19,12 +19,13 @@ export default function Login() {
     event.preventDefault()
     const { email, senha } = formData;
     const isLogged = await auth.signin(email, senha)
-    if (isLogged) {
-        if (email && senha) {
-        return navigate('/');
+    if (email && senha) {
+      if (isLogged) {
+        navigate('/');
+        return true;
       }
+      return false
     }
-
   }, [formData]);
 
   return (

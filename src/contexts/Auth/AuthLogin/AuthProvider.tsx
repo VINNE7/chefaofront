@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { IAuthProvaider, User } from "../../../types";
 import { requisicaoLogin } from "../../../services/requisicoes";
 import { AuthContext } from "./AuthContext";
+import Home from "../../../pages/homepage";
 
 export const AuthProvider = (props: IAuthProvaider) => {
 
@@ -18,7 +19,7 @@ export const AuthProvider = (props: IAuthProvaider) => {
         const validateToken = async () => {
             const storageData = localStorage.getItem('authToken');
             if (!storageData) return undefined;
-            setToken(storageData);
+            return setToken(storageData);  
         };
 
         validateToken();
