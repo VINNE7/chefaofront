@@ -96,13 +96,13 @@ export default function Login() {
           <div className="text-center">
             <button
               type="submit"
-              className="formButtonForward font-bold text-raisinblack text-base mb-4"
+              className="formButtonForward font-bold text-raisinblack text-base mb-8"
             >
               Entrar
             </button>
 
             <div className=" flex flex-col justify-center items-center">
-              <span className="font-bold font-base mb-4">
+              <span className="font-bold font-base text-raisinblack mb-4">
                 Ainda não possui uma conta?
               </span>
               <Link
