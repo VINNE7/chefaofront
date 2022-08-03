@@ -1,4 +1,5 @@
 import MenuHeader from "../../components/MenuHeader";
+import Item from "../../components/Item";
 import imgPen from "../../assets/icons/pen.png";
 import { SubCategory } from "../../components/Subcategory";
 import { ButtonDelete } from "../../components/button/ButtonDelete";
@@ -23,13 +24,13 @@ export default function MenuPage() {
             />
           </button>
         </div>
+        <Item name="" price="" />
         <div className="flex justify-center itemx-center ">
           <SubCategory />
         </div>
         <div className="my-10">
           <ButtonDelete />
         </div>
-
       </div>
     </div>
   );
