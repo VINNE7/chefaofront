@@ -31,6 +31,18 @@ export  function AddSubCategory(){
   
       setSubCards(newCards);
     }, [subCards, setSubCards]);
+    const handleChangeSubCardTitle = useCallback(
+      (value: any) => {
+        let newCards = [...subCards]; // reproduz o array do estado atual
+        if (newCards.find((subcard) => subcard.isEditing === true)) {
+          // se tem um card que está em modo edição
+          newCards.find((subcard) => subcard.isEditing === true)!.title = value; // vc altera o valor do título dele, de acordo com o value que recebe do event.target
+        }
+  
+        setSubCards(newCards);
+      },
+      [subCards, setSubCards] // array de dependências para chamar a função todas as vezes q mudar o valor de cards
+    );
     const handleSetCurrentSubCardOnEdit = useCallback(
       (currentSubCard: { id: number; }) => {
         let newCards = [...subCards]; // cria um array novo reproduzindo o array do estado atual
@@ -79,10 +91,11 @@ export  function AddSubCategory(){
                     className="bg-oxfordblue font-bold w-36 text-base   leading-6 text-semiwhite"
                     type="text"
                     value={subCards.find((subcard) => subcard.isEditing)?.title}
-                    disabled={editable === false}
                     onClick={() => handleSetCurrentSubCardOnEdit(subcard)}
+                    onChange={(e: any) => handleChangeSubCardTitle(e.target.value)}
+                    disabled={isEditable === false}
                   />
-                  <button onClick={() => editSubcategory(subcard.id)}>
+                  <button onClick={() => setIsEditable(!isEditable)}>
                     <img className="" src={Editsub} alt="teste" />
                   </button>
                 </div>
@@ -96,9 +109,9 @@ export  function AddSubCategory(){
             
           <button
             onClick={handleAddSubCard}
-            className="bg-[#001B42] shadow-md flex w-80 rounded-lg p-4 gap-1 items-center object-cover mt-6 "
+            className="bg-royalblue shadow-md flex w-80 rounded-lg p-4 gap-1 items-center object-cover mt-6 "
           >
-            <span className="bg-[#001B42] shadow-md text-[#FAFAFA] ">
+            <span className="bg-royalblue shadow-md text-semiwhite ">
               Adicionar subcategoria{" "}
             </span>
             <div className="text-right ">
