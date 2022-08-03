@@ -74,7 +74,7 @@ export default function Category() {
         {cards.map((card) => (
           <button
             key={card.id}
-            className="font-bold text-base leading-6 bg-cyberyellow p-[30px]  rounded-lg shadow-md w-full max-w-[160px] flex justify-center"
+            className={`font-bold text-base leading-6 p-[30px]  rounded-lg shadow-md w-full max-w-[160px] flex justify-center ${card.isEditing?" bg-cyberyellow":"bg-[#001B42] text-[#FAFAFA]"}`}
             onClick={() => handleSetCurrentCardOnEdit(card) } // esse botão muda qual card está sendo editado
             
           >
