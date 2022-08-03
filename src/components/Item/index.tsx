@@ -1,21 +1,29 @@
-import imgVector from "../../assets/images/img-menu.png";
+import EditImgItem from "../../assets/images/edit-img-item.png";
 
-export function Item() {
+interface IpropsItem {
+  name: string;
+  price: string;
+}
+
+export default function Item(props: IpropsItem) {
   return (
     <>
-      <button className="w-full h-[106px] bg-royaldark flex-row rounded-b-lg flex justify-between items-center hover:cursor-pointer ">
-        <div className="flex flex-col items-start gap-4">
-          <h1 className="text-white text-sm font-bold leading-[22px] ml-[8px]">
-            Moda da Casa
-          </h1>
-          <h2 className="text-white text-sm leading-[24px] ml-[8px]">
-            R$ 54,00
-          </h2>
+      {/* <div className="flex justify-center items-center space-x-16 px-2 bg-royalblue border-b-[0.5px] border-semiwhite min-w-[316px] w-[316px] h-[106px] mx-auto">
+        <div className="flex flex-col space-y-6 text-semiwhite ">
+          <h4 className="font-bold w-[140px]">Moda da Casa</h4>
+          <p>R$54,00</p>
         </div>
-        <div className="w-[97px] h-[74px] bg-grayDisabled rounded-[8px] mr-2 flex justify-center items-center">
-          <img className="w-[46px] h-[46px]" src={imgVector} alt="" />
+        <div className="w-[94px] h-[74px] bg-grayDisabled rounded-lg">
+          <img src={EditImgItem} alt="Imagem generica" className="p-auto" />
         </div>
-      </button>
+      // </div> exemplo estático só pra visualizar como vai ficar*/}
+      <div className="flex justify-center items-center space-x-16 px-2 bg-royalblue border-b-[0.5px] border-semiwhite min-w-[316px] w-[316px] h-[106px] mx-auto">
+        <div className="flex flex-col space-y-6 text-semiwhite ">
+          <h4 className="font-bold w-[140px]">{props.name}</h4>
+          <p>R${props.price}</p>
+        </div>
+        <img src={EditImgItem} alt="Imagem generica" />
+      </div>
     </>
   );
 }

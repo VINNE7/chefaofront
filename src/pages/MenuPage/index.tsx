@@ -1,10 +1,9 @@
 import MenuHeader from "../../components/MenuHeader";
+import Item from "../../components/Item";
 import imgPen from "../../assets/icons/pen.png";
 import { SubCategory } from "../../components/Subcategory";
-import { ButtonDelete } from "../../components/Delete";
-import { Item } from "../../components/Item";
-import { ButtonPublish } from "../../components/button/buttonPublish";
 import Category from "../../components/Category";
+
 
 export default function MenuPage() {
   return (
@@ -12,15 +11,12 @@ export default function MenuPage() {
       <MenuHeader />
 
       <div className="mx-8 ">
-        <div>
-          <Category />
-        </div>
-
+        <h2 className="text-raisinblack text-xl font-bold my-4 ">Categorias</h2>
+<Category />
         <div className="flex justify-between items-center">
           <h2 className="text-raisinblack text-xl font-bold my-10">
             Nome da Categoria
           </h2>
-
           <button>
             <img
               className="w-[21px] h-[18px]"
@@ -29,21 +25,12 @@ export default function MenuPage() {
             />
           </button>
         </div>
-
-        <div>
-          <Item />
-        </div>
-
+        <Item name="" price="" />
         <div className="flex justify-center itemx-center ">
           <SubCategory />
         </div>
-        <div></div>
         <div className="my-10">
-          <ButtonDelete />
-        </div>
 
-        <div>
-          <ButtonPublish />
         </div>
       </div>
     </div>
