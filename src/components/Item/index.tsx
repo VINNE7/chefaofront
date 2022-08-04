@@ -1,4 +1,7 @@
+
+import { useState } from "react";
 import EditImgItem from "../../assets/images/edit-img-item.png";
+import NewItemModal from "../../pages/newItemModal";
 
 interface IpropsItem {
   name: string;
@@ -6,6 +9,7 @@ interface IpropsItem {
 }
 
 export default function Item(props: IpropsItem) {
+
   return (
     <>
       {/* <div className="flex justify-center items-center space-x-16 px-2 bg-royalblue border-b-[0.5px] border-semiwhite min-w-[316px] w-[316px] h-[106px] mx-auto">
@@ -23,7 +27,11 @@ export default function Item(props: IpropsItem) {
           <p>R${props.price}</p>
         </div>
         <img src={EditImgItem} alt="Imagem generica" />
-      </div>
+ 
+        </div>
+
+ 
+ 
     </>
   );
 }
