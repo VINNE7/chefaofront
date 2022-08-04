@@ -2,7 +2,9 @@ import { FormEvent, useCallback, useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/Auth/AuthLogin/AuthContext';
 import { IFormInputs } from '../../types';
+
 import Logo from '../../assets/images/logo.png';
+import Loading from '../../components/Loading';
 
 export default function Login() {
 
@@ -10,7 +12,7 @@ export default function Login() {
     email: '',
     senha: '',
   });
-
+  // const [loading, setLoading ] = useState(false)
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -21,6 +23,7 @@ export default function Login() {
     const isLogged = await auth.signin(email, senha)
     if (email && senha) {
       if (isLogged) {
+        // setLoading(true);
         navigate('/');
         return true;
       }
@@ -49,7 +52,7 @@ export default function Login() {
               E-mail
             </label>
               <input
-                type='email' name='email' id='email' required placeholder='Seu melhor email ;)' autoComplete='current-email'
+                type='email' name='email' id='email' required placeholder='Digite seu email' autoComplete='current-email'
                 className="block box-border w-full rounded-[5px] border border-royalblue py-2 pl-4 pr-6 mb-3  text-sm"
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
@@ -82,7 +85,8 @@ export default function Login() {
               >
                 <><span>
                   Registre-se
-                </span></>
+                </span>
+                </>
               </Link>
             </div>
           </div>

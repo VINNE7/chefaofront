@@ -1,39 +1,35 @@
 import { useEffect, useState } from "react";
-import { IAuthProvider, User } from "../../../types";
+import { IAuthProvaider, User } from "../../../types";
 import { requisicaoLogin } from "../../../services/requisicoes";
 import { AuthContext } from "./AuthContext";
 
-export const AuthProvider = (props: IAuthProvider) => {
+export const AuthProvider = (props: IAuthProvaider) => {
 
     const [user, setUser] = useState<User | null>(null);
-    // const [loading, setLoading] = useState(true);
     const useRequisicao = requisicaoLogin();
-
-    const setToken = (token: string) => {
-        localStorage.setItem('authToken', token);
-    }
 
     useEffect(() => {
         const validateToken = async () => {
             const storageData = localStorage.getItem('authToken');
             if (!storageData) return undefined;
-           setToken(storageData);  
-           setUser({token: storageData })
+             setUser({ token: storageData});
         };
-    }, []);
 
+        validateToken();
+
+    }, []);
 
     const signin = async (email: string, password: string) => {
         const data = await useRequisicao.signin(email, password);
         if (!data) return false;
+        localStorage.setItem('authToken', data)
         setUser(data)
-        setToken(data);
         return true
     }
 
     const signout = () => {
         setUser(null);
-        setToken('');
+        localStorage.removeItem('authToken')
     }
 
     return (
