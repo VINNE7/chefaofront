@@ -6,8 +6,8 @@ export interface IFormInputs {
 export type User = {
     id?: number;
     name?: string;
-    email: string;
-    senha: string;
+    email?: string;
+    senha?: string;
     token?: string;
 }
 

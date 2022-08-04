@@ -15,6 +15,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleFormSubmit = useCallback(async (event: FormEvent) => {
+
     event.preventDefault()
     const { email, senha } = formData;
     const isLogged = await auth.signin(email, senha)
@@ -29,49 +30,42 @@ export default function Login() {
 
   return (
     <>
-      <div className="min-h-[100vh] flex justify-center items-center flex-col bg-stone-100 md:flex-row">
-        <div className='m-16'>
-          <img src={Logo} alt="Logo" width={440} height={383} />
+      <div className="min-h-[110vh] flex justify-center items-center flex-col bg-semiwhite md:flex-row">
+        <div className='m-10'>
+          <img src={Logo} alt="Logo" width={450} height={350} />
         </div>
         <form
           onSubmit={handleFormSubmit}
-          className="w-screen max-w-[480px] m-0 p-3 "
+          className="w-screen max-w-[530px] m-0 p-5"
         >
-          <h1 className="text-oxfordblue text-4xl text-center font-bold">
+          <h1 className="text-oxfordblue text-4xl text-center font-bold mb-8">
             Entrar na Conta
           </h1>
           <div>
             <label
-              className="leading-3 text-left block mb-3 mt-5 text-black text-sm font-extralight"
+              className="text-left font-bold text-raisinblack text-base"
               htmlFor="email"
             >
               E-mail
             </label>
-            <div className="relative ">
-              <i className="fa fa-envelope absolute top-1/2 -translate-y-1/2 right-2" />
               <input
                 type='email' name='email' id='email' required placeholder='Seu melhor email ;)' autoComplete='current-email'
                 className="block box-border w-full rounded-[5px] border border-royalblue py-2 pl-4 pr-6 mb-3  text-sm"
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
-            </div>
           </div>
           <div>
             <label
-              className="leading-3 text-left block mb-3 mt-5 text-black text-sm font-extralight"
+              className="text-left font-bold text-raisinblack text-base"
               htmlFor="password"
             >
               Senha
             </label>
-            <div className="relative ">
-              <i className="fa fa-key absolute top-1/4 -translate-y-1/2 right-2" />
               <input
                 type='password' placeholder='Digite sua senha' id='password' autoComplete='current-password' required minLength={8}
-                className="w-full rounded-[5px] border border-royalblue py-2 pl-4 pr-6 mb-7  text-sm"
+                className="w-full rounded-[5px] border border-royalblue py-2 pl-4 pr-6 mb-10 text-sm"
                 onChange={(e) => setFormData({ ...formData, senha: e.target.value })}
               />
-
-            </div>
           </div>
           <div className='text-center'>
             <button type="submit"

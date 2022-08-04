@@ -14,15 +14,12 @@ export const AuthProvider = (props: IAuthProvider) => {
     }
 
     useEffect(() => {
-
         const validateToken = async () => {
             const storageData = localStorage.getItem('authToken');
             if (!storageData) return undefined;
-            return setToken(storageData);  
+           setToken(storageData);  
+           setUser({token: storageData })
         };
-
-        validateToken();
-
     }, []);
 
 
