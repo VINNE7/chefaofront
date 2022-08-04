@@ -53,12 +53,12 @@ export default function Category() {
         <h3>Categorias</h3>
       </div>
       <div className="flex  gap-4 overflow-x-auto scroll-smooth  p-4">
-        {categories.map((card) => (
+        {categories.map((category) => (
             <button 
-              onClick={()=>setSelectedCategoryNumber(card.id)}
-              key={card.id}
+              onClick={()=>setSelectedCategoryNumber(category.id)}
+              key={category.id}
               className="font-bold  px-12 py-4 text-base leading-6 text-white bg-royalblue  rounded-lg shadow-md  flex justify-center items-center focus:bg-cyberyellow focus:text-royalblue">
-              {card.name} 
+              {category.name} 
             </button>
         ))}
         <button
