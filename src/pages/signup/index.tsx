@@ -127,7 +127,7 @@ export default function Signup() {
             </div>
           </div>
           <div className="text-center raisinblack text-base font-bold flex-row flex justify-between lg:justify-evenly">
-            <Link to={"/"} 
+            <Link to={"/login"} 
               className="formButtonBack"
             >
               Voltar

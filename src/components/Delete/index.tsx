@@ -1,15 +1,14 @@
 import { useState } from "react";
-import imgTrash from "../../../assets/icons/trash.png";
+import { Link } from "react-router-dom";
+import imgTrash from "../../assets/icons/trash.png";
 
 export function ButtonDelete() {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <button className="w-full h-[48px] flex flex-row justify-between items-center">
-        <h2 className="text-raisinblack text-xl font-bold my-10">
-          Excluir Categoria
-        </h2>
+      <button className="w-full h-[36px] flex flex-row justify-between items-center border-solid border-b-2 border-royaldark">
+        <h2 className="text-royaldark text-sm font-bold ">Excluir Categoria</h2>
         <img
           className="w-[20px] h-[24px]"
           src={imgTrash}
@@ -35,13 +34,15 @@ export function ButtonDelete() {
                     >
                       Cancelar
                     </button>
-                    <button
-                      className="formButtonForwardMax font-bold text-[16px]"
-                      type="button"
-                      onClick={() => setShowModal(true)}
-                    >
-                      Excluir
-                    </button>
+                    <Link to={"/menu"}>
+                      <button
+                        className="formButtonForwardMax font-bold text-[16px]"
+                        type="button"
+                        onClick={() => setShowModal(false)}
+                      >
+                        Excluir
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
