@@ -1,56 +1,38 @@
 import { useEffect, useState } from "react";
-import { User } from "../../../types/User";
-import { requicicaoLogin } from "../../../services/requisicoesLogin";
+import { IAuthProvaider, User } from "../../../types";
+import { requisicaoLogin } from "../../../services/requisicoes";
 import { AuthContext } from "./AuthContext";
-
-interface IAuthProvaider {
-    children: JSX.Element;
-}
 
 export const AuthProvider = (props: IAuthProvaider) => {
 
-    const [user, setUSer] = useState<User | null>(null);
-    const userApi = requicicaoLogin()
+    const [user, setUser] = useState<User | null>(null);
+    const useRequisicao = requisicaoLogin();
 
-   
     useEffect(() => {
-        const validateToken = async() => {
+        const validateToken = async () => {
             const storageData = localStorage.getItem('authToken');
-            if(storageData){
-                const data = await userApi.validateToken(storageData);
-                if(data.user){
-                    setUSer(data.user);
-                }
-            }
+            if (!storageData) return undefined;
+             setUser({ token: storageData});
         };
+
         validateToken();
+
     }, []);
-    
 
-    const setToken = (token: string) => {
-        localStorage.setItem('authToken', token)
+    const signin = async (email: string, password: string) => {
+        const data = await useRequisicao.signin(email, password);
+        if (!data) return false;
+        localStorage.setItem('authToken', data)
+        setUser(data)
+        return true
     }
 
-    const signin = async( email: string, password: string ) => {
-        const data = await userApi.signin(email, password);
-        if ( data.user && data.token) {
-            setUSer(data.user);
-            setToken(data.token)
-            return true
-        }
-
-        return false;
+    const signout = () => {
+        setUser(null);
+        localStorage.removeItem('authToken')
     }
 
-    const signout = async () => {
-        setUSer(null);
-        setToken('');
-        await userApi.logout();
-    } 
-
-    
-
-    return(
+    return (
         <AuthContext.Provider value={{ user, signin, signout }}>
             {props.children}
         </AuthContext.Provider>
