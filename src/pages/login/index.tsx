@@ -75,7 +75,7 @@ export default function Login() {
             </button>
 
             <div className='p-10  flex flex-col justify-center items-center'>
-              <span className='font-bold font-xl mb-8' >
+              <span className='font-bold font-xl mb-8 text-raisinblack text-base' >
                 Ainda não possui uma conta?
               </span>
               <Link to={'/signup'}
