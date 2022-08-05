@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "./AuthContext";
-import Login from "../../../pages/Login";
+import Login from "../../../pages/login";
 
 type IProps = {
   children: JSX.Element;

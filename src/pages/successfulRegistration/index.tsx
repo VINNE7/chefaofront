@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import { FormButtonBack } from "../../components/button/ButtonBack";
-import FormButtonForward from "../../components/button/ButtonForward";
 import Img from "../../assets/images/registerOk.png";
 
 export default function SuccessfulRegistration() {
@@ -16,11 +14,11 @@ export default function SuccessfulRegistration() {
           cardápio
         </p>
         <div className="flex justify-center items-center w-5/6 mx-auto mb-[197px] space-x-5">
-          <Link to={""}>
-            <FormButtonBack buttonLabel="Sair" />
+          <Link to={""} className="box-border border border-cyberyellow py-2 px-4 rounded-[10px] w-[146px]  items-center justify-center text-center">
+            Sair
           </Link>
-          <Link to={"/login"}>
-            <FormButtonForward buttonLabel="Começar" />
+          <Link to={"/login"} className="bg-cyberyellow  border border-cyberyellow py-2 px-4  rounded-[10px] w-[146px] items-center  justify-center text-center">
+            Começar
           </Link>
         </div>
       </main>
