@@ -1,4 +1,4 @@
-import EditIcon from "../icons/editIcon";
+import EditIcon from "../icons/EditIcon";
 
  interface IDateRowProps {
   dayText: string
