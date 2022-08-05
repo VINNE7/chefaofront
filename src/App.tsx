@@ -1,16 +1,15 @@
-import { BrowserRouter } from 'react-router-dom'
-import RoutesComponent from './routes'
-import './styles/global.css'
+import { BrowserRouter } from "react-router-dom";
+import RoutesComponent from "./routes";
+import "./styles/global.css";
 
 function App() {
-
   return (
     <>
       <BrowserRouter>
-        <RoutesComponent/>
+        <RoutesComponent />
       </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

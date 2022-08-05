@@ -2,21 +2,16 @@ import { FormEvent, useCallback, useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/Auth/AuthLogin/AuthContext';
 import { IFormInputs } from '../../types';
-
 import Logo from '../../assets/images/logo.png';
 
 export default function Login() {
-
   const [formData, setFormData] = useState<IFormInputs>({
     email: '',
     senha: '',
   });
-
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
-
   const handleFormSubmit = useCallback(async (event: FormEvent) => {
-
     event.preventDefault()
     const { email, senha } = formData;
     const isLogged = await auth.signin(email, senha)
@@ -68,7 +63,7 @@ export default function Login() {
               onChange={(e) => setFormData({ ...formData, senha: e.target.value })}
             />
           </div>
-          <div className="text-center">
+          <div className="text-center"/>
             <button
               type="submit"
               className="formButtonForward font-bold text-raisinblack text-base mb-8"
@@ -77,7 +72,9 @@ export default function Login() {
             </button>
 
             <div className=" flex flex-col justify-center items-center">
-              <span className="font-bold font-base text-raisinblack mb-4">
+              <span className="font-bold font-base text-raisinblack mb-4"/>
+            <div className='p-10  flex flex-col justify-center items-center'>
+              <span className='font-bold font-xl mb-8 text-raisinblack text-base' >
                 Ainda não possui uma conta?
               </span>
               <Link to={'/signup'}
