@@ -2,7 +2,7 @@
 import Edit from "../../assets/icons/edit.png";
 import Editsub from "../../assets/icons/editsub.png";
 import Drop from "../../assets/icons/drop.png";
-import Plus from "../../assets/icons/sum.png";
+import Plus from "../../assets/icons/sum-yellow.png";
 import trash from "../../assets/icons/trash-white.png";
 import imgSum from "../../assets/icons/sum-yellowbig.png";
 import imgSumy from "../../assets/icons/sum-yellow.png";
@@ -39,12 +39,12 @@ export default function Category() {
 
   return (
     <>
-      <div className="text-[#24252E] text-xl font-bold p-4">
-        <h3>Categorias</h3>
+      <div className="text-[#24252E] text-xl font-bold">
+        <h3 className="mb-4">Categorias</h3>
       </div>
-      <div className="flex  gap-4 overflow-x-auto scroll-smooth  p-4">
+      <div className="flex gap-4 overflow-x-auto scroll-smooth m-">
         {cards.map((card) => (
-          <button className="font-bold text-base leading-6 bg-cyberyellow p-[30px]  rounded-lg shadow-md w-full max-w-[160px] flex justify-center">
+          <button className="font-bold text-base leading-6 bg-cyberyellow  rounded-lg shadow-md w-full flex justify-center items-center">
 
             {card}
           </button>
@@ -54,17 +54,17 @@ export default function Category() {
 
           className="bg-[#001B42] shadow-md flex w-full max-w-[160px] rounded-lg p-[30px] gap-1 items-center object-cover "
         >
-          <span className="bg-[#001B42] shadow-md text-[#FAFAFA]">
+          <span className="bg-[#001B42] shadow-md text-[#FAFAFA] ">
 
             Adicionar Categorias{" "}
           </span>
-          <img className="" src={Plus} alt="" />
+          <img className="ml-1" src={Plus} alt="" />
         </button>
       </div>
 
-      <div className="flex  justify-center ">
+      <div className="flex ">
         <input
-          className="text-raisinblack text-xl font-bold leading-8 "
+          className="text-raisinblack text-xl font-bold leading-8 my-4 w-full"
           type="text"
           value={establishmentName}
           onChange={(e: any) => setEstablishmentName(e.target.value)}
@@ -75,12 +75,12 @@ export default function Category() {
         </button>
       </div>
 
-      <div className="pl-4">
+      <div className="pl-">
         {subcards.map((subcard) => (
-          <div className="bg-oxfordblue p-6 justify-between  rounded-lg shadow-md w-80 flex text-center mb-1 ">
-            <div className="text-left ">
+          <div className="bg-oxfordblue p-5 justify-between  rounded-lg shadow-md flex text-center mb-1 w-full">
+            <div className="text-left">
               <input
-                className="bg-oxfordblue font-bold w-36 text-base   leading-6 text-semiwhite"
+                className="bg-oxfordblue font-bold w-[158px] text-base text-left leading-6 text-semiwhite flex-row mr-2"
                 type="text"
                 disabled={isEditable === false}
                 value={establishmentSubcategory}
@@ -88,9 +88,10 @@ export default function Category() {
                   setestablishmentSubcategory(e.target.value)
                 }
               />
+              
               <button onClick={() => setIsEditable(!isEditable)}>
                 <img
-                  className="w-[15px] h-[17px]"
+                  className="w-[15px] h-[17px] mr-4"
                   src={Editsub}
                   alt="Botão editar"
                 />
@@ -103,6 +104,8 @@ export default function Category() {
                 />
 
               </button>
+              
+   
             </div>
             <div className="flex">
               <button onClick={onClik}>
@@ -143,9 +146,9 @@ export default function Category() {
           onClick={() =>
             setSubcards((state) => [...state, "Nova Subcategoria"])
           }
-          className="bg-[#001B42] shadow-md flex w-80 rounded-lg p-4 gap-1 items-center object-cover mt-6 "
+          className="bg-[#001B42] shadow-md flex w-full rounded-lg p-4  items-center object-cover mt-6 justify-between "
         >
-          <span className="bg-[#001B42] shadow-md text-[#FAFAFA] ">
+          <span className="text-white text-sm font-bold leading-[22px]  ">
             Adicionar subcategoria{" "}
           </span>
           <div className="text-right ">

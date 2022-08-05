@@ -14,9 +14,7 @@ export default function Menu() {
 
      
         <div className="flex justify-between items-center">
-          <h2 className="text-raisinblack text-xl font-bold my-10">
-            Nome da Categoria
-          </h2>
+
           <button>
             <img
               className="w-[21px] h-[18px]"

@@ -38,7 +38,7 @@ export default function MenuHeader() {
 
               
               <textarea
-                className="text-sm resize-none px-2 py-1 mb-3 rounded-lg  disabled:bg-transparent disabled:border-none disabled:focus:outline-none disabled:text-semiwhite disabled:p-0 disabled:rounded-none"
+                className="text-sm text-center resize-none px-10 py-1 mb-3 rounded-lg  disabled:bg-transparent disabled:border-none disabled:focus:outline-none disabled:text-semiwhite  disabled:rounded-none"
                 disabled={isEditable === false}
                 value={establishmentAddress}
                 {...register("address", {required: true, onChange:(e)=>setEstablishmentAddress(e.target.value)})}
