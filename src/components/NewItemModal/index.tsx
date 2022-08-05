@@ -8,7 +8,7 @@ interface IFormValues {
   photoDescription: string;
 }
 
-export default function NewItemModal() {
+export default function NewItemModal(props: any) {
   const { register, handleSubmit } = useForm<IFormValues>();
 
   const submit: SubmitHandler<IFormValues> = (data) =>
@@ -100,9 +100,9 @@ export default function NewItemModal() {
           </div>
 
           <div className="font-bold flex-row flex justify-around mt-5">
-            <Link to={"/menu"} className="formButtonBackMin bg-white">
+            <button onClick={props.onClick} className="formButtonBackMin bg-semiwhite">
               Cancelar
-            </Link>
+            </button>
 
             <input
               type="submit"
