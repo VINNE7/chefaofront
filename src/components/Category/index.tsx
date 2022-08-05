@@ -47,7 +47,7 @@ export default function Category() {
       <div className="text-[#24252E] text-xl font-bold p-4">
         <h3>Categorias</h3>
       </div>
-      <div className="flex  gap-4 overflow-x-auto scroll-smooth  p-4">
+      <div className="flex gap-4 overflow-x-auto scroll-smooth  p-4">
         {cards.map((card) => (
           <button className="font-bold text-base leading-6 bg-cyberyellow p-[30px]  rounded-lg shadow-md w-full max-w-[160px] flex justify-center">
 
@@ -110,7 +110,7 @@ export default function Category() {
           <div className="drop">
       <button className="w-full h-[82px] bg-royaldark flex-row rounded-b-lg flex justify-between items-center hover:cursor-pointer mb-4">
         <div className="flex flex-col items-start gap-4">
-          <h1 className="text-white text-sm font-bold leading-[22px] ml-[8px]">
+          <h1 className="text-white text-sm font-bold leading-[22px] ml-2">
             Adicionar item
           </h1>
         </div>

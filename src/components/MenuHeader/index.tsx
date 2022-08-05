@@ -11,7 +11,7 @@ export default function MenuHeader() {
       <div className="w-screen items-center ">
         <div className=" flex items-center flex-col bg-royaldark rounded-b-2xl shadow-md pt-4">                    
             <form action="" className="mt-2 text-center flex flex-col justify-center items-center gap-2">
-              <Avatar/>
+              <Avatar />
               <input
                 type="text"
                 disabled={isEditable === false}

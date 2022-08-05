@@ -1,12 +1,12 @@
 import { Routes, Route, Link } from "react-router-dom";
-import MenuHeader from "../components/MenuHeader";
 import Home from "../pages/homepage";
 import Login from "../pages/login";
 import SecondStablishmentSignup from "../pages/secondStablishmentSignup";
 import Signup from "../pages/signup";
 import SuccessfulRegistration from "../pages/successfulRegistration";
-import MenuPage from "../pages/menu";
+
 import { RequireAuth } from "../contexts/Auth/AuthLogin/RequireAuth";
+import MenuPage from "../pages/MenuPage";
 
 export default function RoutesComponent() {
   return (
