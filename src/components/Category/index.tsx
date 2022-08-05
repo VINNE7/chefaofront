@@ -3,7 +3,7 @@ import Editsub from "../../assets/icons/editsub.png";
 import Drop from "../../assets/icons/drop.png";
 import Plus from "../../assets/icons/Vector.png";
 import { useState } from "react";
-import AddCardIcon from "../icons/editIcon/addCardIcon";
+import AddCardIcon from "../icons/AddCardIcon";
 
 interface Newcard {
   id: number;
