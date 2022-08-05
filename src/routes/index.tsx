@@ -1,13 +1,12 @@
 import { Routes, Route, Link } from "react-router-dom";
 import { RequireAuth } from "../contexts/Auth/AuthLogin/RequireAuth";
-import MenuHeader from "../components/MenuHeader";
 import FirstStablishmentSignup from "../pages/firstStablishmentSignup";
-import Home from "../pages/homepage";
-import Login from "../pages/login";
+import Home from "../pages/Homepage";
+import Login from "../pages/Login";
 import MenuPage from "../pages/MenuPage";
-import SecondStablishmentSignup from "../pages/secondStablishmentSignup";
-import Signup from "../pages/signup";
-import SuccessfulRegistration from "../pages/successfulRegistration";
+import SecondStablishmentSignup from "../pages/SecondStablishmentSignup";
+import Signup from "../pages/Signup";
+import SuccessfulRegistration from "../pages/SuccessfulRegistration";
 
 export default function RoutesComponent() {
   return (
@@ -22,10 +21,7 @@ export default function RoutesComponent() {
       ></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/signup" element={<Signup />}></Route>
-      <Route
-        path="/firstStablishmentSignup"
-        element={<FirstStablishmentSignup />}
-      ></Route>
+      <Route path="/firstStablishmentSignup" element={<></>}></Route>
       <Route
         path="/secondStablishmentSignup"
         element={<SecondStablishmentSignup />}
@@ -34,14 +30,7 @@ export default function RoutesComponent() {
         path="/successfulRegistration"
         element={<SuccessfulRegistration />}
       ></Route>
-      <Route
-        path="/menupage"
-        element={<MenuPage/>}
-      ></Route>
-      <Route 
-        path="/menu"
-        element={<MenuHeader/>}
-        ></Route>
+      <Route path="/menupage" element={<MenuPage />}></Route>
     </Routes>
   );
 }

@@ -1,10 +1,13 @@
-export default function MenuPage (){
-  return(
-    <div className="flex w-[316px] mx-auto">
-      <div>
-        <h1 className="text-raisinblack text-2xl font-bold">Categorias</h1>
 
-        
+import MenuHeader from "../../components/MenuHeader";
+import Category from "../../components/Category";
+
+export default function MenuPage() {
+  return (
+    <div className="grid gap-4 ">
+      <MenuHeader />
+      <div className="mx-8 ">
+        <Category />
       </div>
     </div>
   );
