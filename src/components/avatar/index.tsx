@@ -13,13 +13,7 @@ export default function Avatar() {
         setImage(e.target?.result?.toString());
       };
       reader.readAsDataURL(file);
-    }
-
-
-    reader.readAsDataURL(file)
-    
-    sendImage(file);
-
+      sendImage(file);
     }
   }
 

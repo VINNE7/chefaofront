@@ -1,7 +1,6 @@
 
 import { useState } from "react";
 import EditImgItem from "../../assets/images/edit-img-item.png";
-import NewItemModal from "../../pages/newItemModal";
 
 interface IpropsItem {
   name: string;
