@@ -9,7 +9,7 @@ import imgSumy from "../../assets/icons/sum-yellow.png"
 import { Link } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Avatar from "../avatar";
-import AddImg from "../AddImg";
+
 
 
 

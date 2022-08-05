@@ -1,25 +1,26 @@
-
 import { useContext } from 'react';
 import { AuthContext } from "../../contexts/Auth/AuthLogin/AuthContext";
 import { useNavigate } from 'react-router-dom';
 
- 
-export default function Home(){
+
+export default function Home() {
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
 
-  async function handleLogout(){
-    await auth.signout();
-    navigate('/')
+  function handleLogout(event:  React.MouseEvent<HTMLAnchorElement, MouseEvent>){
+    event.preventDefault();
+    auth.signout();
+    navigate('/login')
   }
 
-  return(
+  return (
     <div className="flex flex-col bg-slate-800">
       <div>
         <h1 className="text-4xl mb-7"
-        > Olá { auth.user?.name}, Tudo bem?
+        > Olá {auth.user?.name}, Tudo bem?
         </h1>
       </div>
+
     <a href="/login">Login</a>
     <a href="/signup">Cadastro</a>
     <a href="/firstStablishmentSignup">Primeiro Cadastro de Estabelecimento</a>
