@@ -4,7 +4,7 @@ import imgTrash from "../../assets/icons/trash.png";
 
 export function ButtonDelete() {
   const [showModal, setShowModal] = useState(false);
-
+  
   return (
     <>
       <button className="w-full h-[36px] flex flex-row justify-between items-center border-solid border-b-2 border-royaldark">
@@ -15,7 +15,6 @@ export function ButtonDelete() {
           alt="icone para deletar"
           onClick={() => setShowModal(true)}
         />
-
         {showModal ? (
           <>
             <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">

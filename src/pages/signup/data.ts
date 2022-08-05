@@ -10,7 +10,6 @@ export const segmentsArray = [
     if(a.label.toLowerCase() < b.label.toLowerCase()){
       return -1;
     }
-
     return 0;
   })
   

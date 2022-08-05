@@ -7,7 +7,6 @@ import trash from "../../assets/icons/trash-white.png"
 import imgSum from "../../assets/icons/sum-yellowbig.png";
 import imgSumy from "../../assets/icons/sum-yellow.png"
 
-
 export default function Category() {
   const [cards, setCards] = useState(["Pizza"]);
   const [subcards, setSubcards] = useState([""]);
@@ -17,12 +16,10 @@ export default function Category() {
   const [establishmentSubcategory, setestablishmentSubcategory] = useState(
     "Nova subcategoria"
   );
-
   const [isActive, setIsActive] = useState(false);
   const onClik = () => setIsActive(!isActive);
-
   console.log(isActive);
-
+  
   return (
     <>
       <div className="text-raisinblack text-xl font-bold my-4 ">
@@ -36,9 +33,9 @@ export default function Category() {
         ))}
         <button
           onClick={() => setCards((state) => [...state, "Nova categoria"])}
-          className="bg-[#001B42] shadow-md flex w-full max-w-[160px] rounded-lg p-[30px] gap-1 items-center object-cover "
+          className="bg-royalblue shadow-md flex w-full max-w-[160px] rounded-lg p-[30px] gap-1 items-center object-cover "
         >
-          <span className="bg-[#001B42] shadow-md text-[#FAFAFA]">
+          <span className="bg-royalblue shadow-md text-semiwhite">
             Adicionar Categorias{" "}
           </span>
           <img className="" src={Plus} alt="" />
@@ -84,31 +81,30 @@ export default function Category() {
           </div>
         ))}
         {isActive && (
-          <div className="drop">
-      <button className="w-full h-[82px] bg-royaldark flex-row rounded-b-lg flex justify-between items-center hover:cursor-pointer mb-4">
-        <div className="flex flex-col items-start gap-4">
-          <h1 className="text-white text-sm font-bold leading-[22px] ml-[8px]">
-            Adicionar item
-          </h1>
-        </div>
-        <img className="w-[40px] h-[40px] mr-4" src={imgSum}alt="" />
-      </button>
+      <div className="drop">
+        <button className="w-full h-[82px] bg-royaldark flex-row rounded-b-lg flex justify-between items-center hover:cursor-pointer mb-4">
+          <div className="flex flex-col items-start gap-4">
+            <h1 className="text-semiwhite text-sm font-bold leading-[22px] ml-[8px]">
+              Adicionar item
+            </h1>
           </div>
-        )}
-
-        <button
-          onClick={() =>
-            setSubcards((state) => [...state, "Nova Subcategoria"])
-          }
-          className="w-full h-[48px] bg-royaldark flex-row flex justify-between items-center rounded-[5px] hover:cursor-pointer  "
-        >
-          <span className="text-white text-sm font-bold leading-[22px] ml-[8px]">
-            Adicionar subcategoria{" "}
-          </span>
-          <div className="text-right ">
-          <img className ="w-[22px] h-[22px] mr-[13px] " src={imgSumy} alt="" />
-          </div>
+          <img className="w-[40px] h-[40px] mr-4" src={imgSum}alt="" />
         </button>
+      </div>
+        )}
+          <button
+            onClick={() =>
+              setSubcards((state) => [...state, "Nova Subcategoria"])
+            }
+            className="w-full h-[48px] bg-royaldark flex-row flex justify-between items-center rounded-[5px] hover:cursor-pointer  "
+          >
+            <span className="text-semiwhite text-sm font-bold leading-[22px] ml-[8px]">
+              Adicionar subcategoria{" "}
+            </span>
+            <div className="text-right ">
+            <img className ="w-[22px] h-[22px] mr-[13px] " src={imgSumy} alt="" />
+            </div>
+          </button>
       </div>
     </>
   );

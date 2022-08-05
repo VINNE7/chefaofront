@@ -10,7 +10,6 @@ interface IFormValues {
 
 export default function NewItemModal() {
   const { register, handleSubmit } = useForm<IFormValues>();
-
   const submit: SubmitHandler<IFormValues> = (data) =>
     alert(JSON.stringify(data));
 
@@ -39,7 +38,6 @@ export default function NewItemModal() {
               />
             </div>
           </div>
-
           <div className="flex flex-col gap-2">
             <label
               className="leading-6 text-left raisinblack"
@@ -57,7 +55,6 @@ export default function NewItemModal() {
               />
             </div>
           </div>
-
           <div className="flex flex-col gap-2">
             <label className="leading-6 text-left raisinblack" htmlFor="price">
               Preço
@@ -75,11 +72,9 @@ export default function NewItemModal() {
               />
             </div>
           </div>
-
           <button className="formButtonBack !w-full font-bold">
             Adicionar foto do item
           </button>
-
           <div className="flex flex-col gap-2">
             <label
               className="leading-6 text-left raisinblack"
@@ -98,12 +93,10 @@ export default function NewItemModal() {
               />
             </div>
           </div>
-
           <div className="font-bold flex-row flex justify-around mt-5">
             <Link to={"/menu"} className="formButtonBackMin bg-white">
               Cancelar
             </Link>
-
             <input
               type="submit"
               className="formButtonForwardMax hover:cursor-pointer"
