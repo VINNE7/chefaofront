@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Avatar from "../Avatar";
+import Avatar from "../AvatarComponent";
 import { SubmitHandler, useForm} from "react-hook-form";
 
 interface IMenuFormValues{
