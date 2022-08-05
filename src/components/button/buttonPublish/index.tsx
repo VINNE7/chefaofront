@@ -1,5 +1,3 @@
-import imgSumyellow from "../../assets/icons/sum-yellow.png";
-
 export function ButtonPublish() {
   return (
     <>

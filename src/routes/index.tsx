@@ -21,10 +21,7 @@ export default function RoutesComponent() {
       ></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/signup" element={<Signup />}></Route>
-      <Route
-        path="/firstStablishmentSignup"
-        element={<FirstStablishmentSignup />}
-      ></Route>
+      <Route path="/firstStablishmentSignup" element={<></>}></Route>
       <Route
         path="/secondStablishmentSignup"
         element={<SecondStablishmentSignup />}
