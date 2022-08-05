@@ -147,7 +147,7 @@ export default function Category() {
           </div>
         ))} {isActive && (
           <div className="drop">
-            <button className="bg-[#001B42] w-[320px] rounded-lg p-4 text-[#FAFAFA] ">
+            <button className="bg-royalblue w-[320px] rounded-lg p-4 text-semiwhite ">
               Adicionar Item
             </button>
           </div>
