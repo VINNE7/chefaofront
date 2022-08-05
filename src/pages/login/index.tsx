@@ -2,21 +2,16 @@ import { FormEvent, useCallback, useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/Auth/AuthLogin/AuthContext';
 import { IFormInputs } from '../../types';
-
 import Logo from '../../assets/images/logo.png';
 
 export default function Login() {
-
   const [formData, setFormData] = useState<IFormInputs>({
     email: '',
     senha: '',
   });
-
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
-
   const handleFormSubmit = useCallback(async (event: FormEvent) => {
-
     event.preventDefault()
     const { email, senha } = formData;
     const isLogged = await auth.signin(email, senha)
@@ -73,7 +68,6 @@ export default function Login() {
               className="box-border border-2 border-cyberyellow py-2 px-4 text-[sm] rounded-[10px] w-[230px] items-center text-raisinblack txt font-bold"
             >Entrar
             </button>
-
             <div className='p-10  flex flex-col justify-center items-center'>
               <span className='font-bold font-xl mb-8 text-raisinblack text-base' >
                 Ainda não possui uma conta?

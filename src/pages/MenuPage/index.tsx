@@ -8,7 +8,6 @@ export default function MenuPage() {
   return (
     <div className="grid gap-4 ">
       <MenuHeader />
-
       <div className="mx-8 ">
         <h2 className="text-raisinblack text-xl font-bold my-4 ">Categorias</h2>
         <Category />
