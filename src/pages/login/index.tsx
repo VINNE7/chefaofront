@@ -26,7 +26,7 @@ export default function Login() {
 
   return (
     <>
-      <div className="min-h-[110vh] flex justify-center items-center flex-col bg-semiwhite md:flex-row ml-7">
+      <div className="min-h-[110vh] flex justify-center items-center flex-col bg-semiwhite md:flex-row">
         <div className='m-10'>
           <img src={Logo} alt="Logo" width={450} height={380} />
         </div>
