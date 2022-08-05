@@ -19,7 +19,7 @@ module.exports = {
         royaldark: "#001B42"
       },
       fontFamily: {
-        tahoma: 'Tahoma'
+        tahoma: ['Tahoma, sans-serif']
       },
 
       lineHeight: {

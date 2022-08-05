@@ -1,11 +1,8 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
-
-import { FormButtonBack } from "../../components/button/buttonBack";
-import FormButtonForward from "../../components/button/buttonForward";
-
+import { FormButtonBack } from "../../components/button/ButtonBack";
+import FormButtonForward from "../../components/button/ButtonForward";
 import { segmentsArray } from "./data";
-
 
 type FormValues = {
   name: string;
@@ -19,7 +16,6 @@ export default function Signup() {
   const { register, handleSubmit, formState:{errors}, watch } = useForm<FormValues>();
   const onSubmit: SubmitHandler<FormValues> = (data) =>
     alert(JSON.stringify(data ));
-
 
   return (
     <div className="min-h-screen w-screen flex bg-semiwhite justify-center items-center flex-col ">
@@ -45,7 +41,6 @@ export default function Signup() {
               />
             </div>
           </div>
-
           <div className="flex flex-col gap-2">
             <label
               className="leading-6 text-left raisinblack text-base font-bold"
@@ -53,7 +48,6 @@ export default function Signup() {
             >
               E-mail
             </label>
-
             <div className="relative ">
               <input
                 className="block box-border w-full rounded-md border-solid border border-royalblue py-2 px-2 text-sm"
@@ -64,7 +58,6 @@ export default function Signup() {
               />
             </div>
           </div>
-
           <div className="flex flex-col gap-2">
             <label
               className="leading-6 text-left raisinblack text-base font-bold"
@@ -83,7 +76,6 @@ export default function Signup() {
               </select>
             </div>
           </div>
-
           <div className="flex flex-col gap-2">
             <label
               className="leading-6 text-left raisinblack text-base font-bold"
@@ -106,7 +98,6 @@ export default function Signup() {
               {errors.password && <p className="mt-1 text-red-600 text-sm">⚠ {errors.password.message}</p>}
             </div>
           </div>
-
           <div className="flex flex-col gap-2">
             <label
               className="leading-6 text-left raisinblack text-base font-bold"
@@ -127,12 +118,11 @@ export default function Signup() {
             </div>
           </div>
           <div className="text-center raisinblack text-base font-bold flex-row flex justify-between lg:justify-evenly">
-            <Link to={"/"} 
+            <Link to={"/login"} 
               className="formButtonBack"
             >
               Voltar
-            </Link>
-
+            </Link>           
             <input type="submit" className="formButtonForward hover:cursor-pointer" value="Enviar" />
           </div>
         </form>

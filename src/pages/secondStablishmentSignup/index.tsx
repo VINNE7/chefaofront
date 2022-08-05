@@ -1,4 +1,3 @@
-import DateContainer from "../../components/DateRow";
 import DateRow from "../../components/DateRow";
 import EditIcon from "../../components/icons/editIcon";
 import Modal from "react-modal";
@@ -25,7 +24,6 @@ export default function SecondStablishmentSignup() {
         <h1 className="text-2xl font-bold text-center mb-10">
           Horário de Funcionamento
         </h1>
-
         <div className="mb-8">
           <DateRow dayText="Segunda" />
           <DateRow dayText="Terça" />
@@ -35,14 +33,12 @@ export default function SecondStablishmentSignup() {
           <DateRow dayText="Sábado" />
           <DateRow dayText="Domingo" />
         </div>
-
         <button
           className="text-sm text-royalblue font-bold border-b border-royalblue self-center mb-8"
           onClick={openModal}
         >
           Editar Todos os Horários
         </button>
-
         <div className="flex items-center justify-center gap-5 mx-8">
           <button className=" flex-1 border-2 rounded-2xl border-cyberyellow  py-2 hover:border-darkgolden hover:bg-yellowcrayolla transition-colors">
             Voltar
@@ -51,7 +47,6 @@ export default function SecondStablishmentSignup() {
             Salvar
           </button>
         </div>
-
         <ReactModal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
@@ -78,7 +73,6 @@ export default function SecondStablishmentSignup() {
                   </label>
                 ))}
               </div>
-
               <div></div>
             </form>
           </div>
