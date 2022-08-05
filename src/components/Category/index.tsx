@@ -2,11 +2,11 @@
 import Edit from "../../assets/icons/edit.png";
 import Editsub from "../../assets/icons/editsub.png";
 import Drop from "../../assets/icons/drop.png";
-import Plus from "../../assets/icons/sum.png";
+
 import trash from "../../assets/icons/trash-white.png";
 import imgSum from "../../assets/icons/sum-yellowbig.png";
 import imgSumy from "../../assets/icons/sum-yellow.png";
-import Plus from "../../assets/icons/Vector.png";
+import Plus from "../../assets/icons/sum.png";
 import { useRef, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import NewItemModal from "../NewItemModal";

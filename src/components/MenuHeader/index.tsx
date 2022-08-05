@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Avatar from "../avatar";
+import Avatar from "../Avatar";
 import { SubmitHandler, useForm} from "react-hook-form";
 
 interface IMenuFormValues{
@@ -26,7 +26,7 @@ export default function MenuHeader() {
             
             <form action="" className="mt-2 text-center flex flex-col justify-center items-center gap-2" onSubmit={handleSubmit(onSubmit)}>
 
-              <Avatar/>
+              <Avatar />
               <input
                 type="text"
                 disabled={isEditable === false}
