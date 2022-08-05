@@ -93,16 +93,15 @@ export default function Login() {
               }
             />
           </div>
-          <div className="text-center">
-            <button
-              type="submit"
-              className="formButtonForward font-bold text-raisinblack text-base mb-8"
-            >
-              Entrar
-            </button>
 
-            <div className=" flex flex-col justify-center items-center">
-              <span className="font-bold font-base text-raisinblack mb-4">
+          <div className='text-center'>
+            <button type="submit"
+              className="box-border border-2 border-cyberyellow py-2 px-4 text-[sm] rounded-[10px] w-[230px] items-center text-raisinblack txt font-bold"
+            >Entrar
+            </button>
+            <div className='p-10  flex flex-col justify-center items-center'>
+              <span className='font-bold font-xl mb-8 text-raisinblack text-base' >
+
                 Ainda não possui uma conta?
               </span>
               <Link
