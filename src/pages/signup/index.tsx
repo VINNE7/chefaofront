@@ -1,7 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { FormButtonBack } from "../../components/button/ButtonBack";
-import FormButtonForward from "../../components/button/ButtonForward";
 import { segmentsArray } from "./data";
 
 type FormValues = {
@@ -13,9 +11,14 @@ type FormValues = {
 };
 
 export default function Signup() {
-  const { register, handleSubmit, formState:{errors}, watch } = useForm<FormValues>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm<FormValues>();
   const onSubmit: SubmitHandler<FormValues> = (data) =>
-    alert(JSON.stringify(data ));
+    alert(JSON.stringify(data));
 
   return (
     <div className="min-h-screen w-screen flex bg-semiwhite justify-center items-center flex-col ">
@@ -37,7 +40,7 @@ export default function Signup() {
                 placeholder="Digite seu nome"
                 type="text"
                 required
-                {...register("name", {required: true})}
+                {...register("name", { required: true })}
               />
             </div>
           </div>
@@ -71,8 +74,12 @@ export default function Signup() {
                 className="block box-border w-full rounded-md border-solid border border-royalblue py-2 px-2 text-sm"
                 required
                 {...register("segment")}
-                >
-                  {segmentsArray.map(({value, label}, i)=>(<option key={i+"-segment"} value={value}>{label}</option>))}
+              >
+                {segmentsArray.map(({ value, label }, i) => (
+                  <option key={i + "-segment"} value={value}>
+                    {label}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
@@ -91,11 +98,16 @@ export default function Signup() {
                 required
                 {...register("password", {
                   minLength: {
-                  value: 8,
-                  message: "As senhas devem ter no mínimo oito caracteres"
-                }} )}
+                    value: 8,
+                    message: "As senhas devem ter no mínimo oito caracteres",
+                  },
+                })}
               />
-              {errors.password && <p className="mt-1 text-red-600 text-sm">⚠ {errors.password.message}</p>}
+              {errors.password && (
+                <p className="mt-1 text-red-600 text-sm">
+                  ⚠ {errors.password.message}
+                </p>
+              )}
             </div>
           </div>
           <div className="flex flex-col gap-2">
@@ -112,18 +124,26 @@ export default function Signup() {
                 type="password"
                 required
                 {...register("confirmedPassword", {
-                  validate: value => value === watch("password") || "As senhas devem ser iguais"})}
+                  validate: (value) =>
+                    value === watch("password") || "As senhas devem ser iguais",
+                })}
               />
-              {errors.confirmedPassword && <p className="mt-1 text-red-600 text-sm">⚠ {errors.confirmedPassword.message}</p>}
+              {errors.confirmedPassword && (
+                <p className="mt-1 text-red-600 text-sm">
+                  ⚠ {errors.confirmedPassword.message}
+                </p>
+              )}
             </div>
           </div>
           <div className="text-center raisinblack text-base font-bold flex-row flex justify-between lg:justify-evenly">
-            <Link to={"/login"} 
-              className="formButtonBack"
-            >
+            <Link to={"/login"} className="formButtonBack">
               Voltar
-            </Link>           
-            <input type="submit" className="formButtonForward hover:cursor-pointer" value="Enviar" />
+            </Link>
+            <input
+              type="submit"
+              className="formButtonForward hover:cursor-pointer"
+              value="Enviar"
+            />
           </div>
         </form>
       </div>

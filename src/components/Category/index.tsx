@@ -2,12 +2,14 @@ import { useRef, useState } from "react";
 import Edit from "../../assets/icons/pen.png";
 import Editsub from "../../assets/icons/pen-white.png";
 import Drop from "../../assets/icons/drop.png";
-import Plus from "../../assets/icons/sum.png";
+import Plus from "../../assets/icons/plus.png";
 import trash from "../../assets/icons/trash-white.png"
-import imgSum from "../../assets/icons/sum-yellowbig.png";
-import imgSumy from "../../assets/icons/sum-yellow.png"
+import PlusBig from "../../assets/icons/plus-big.png";
+import NewItemModal from "../NewItemModal";
+
 
 export default function Category() {
+  const [showModal, setShowModal] = useState(false);
   const [cards, setCards] = useState(["Pizza"]);
   const [subcards, setSubcards] = useState([""]);
   const [isEditable, setIsEditable] = useState(false);
@@ -88,7 +90,18 @@ export default function Category() {
               Adicionar item
             </h1>
           </div>
-          <img className="w-[40px] h-[40px] mr-4" src={imgSum}alt="" />
+          <img
+                className="w-[40px] h-[40px] mr-4"
+                src={PlusBig}
+                alt=""
+                onClick={() => setShowModal(true)}
+              />
+              {showModal ? (
+                <>  
+                 < NewItemModal 
+                 onClick={() => setShowModal(false)}/>
+                </>
+              ) : null}
         </button>
       </div>
         )}
@@ -102,7 +115,7 @@ export default function Category() {
               Adicionar subcategoria{" "}
             </span>
             <div className="text-right ">
-            <img className ="w-[22px] h-[22px] mr-[13px] " src={imgSumy} alt="" />
+            <img className ="w-[22px] h-[22px] mr-[13px] " src={Plus} alt="" />
             </div>
           </button>
       </div>
