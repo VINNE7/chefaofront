@@ -1,4 +1,5 @@
 import DateRow from "../../components/DateRow";
+import EditIcon from "../../components/icons/editIcon";
 import Modal from "react-modal";
 import { useState } from "react";
 import ReactModal from "react-modal";
@@ -8,9 +9,11 @@ Modal.setAppElement("#root");
 
 export default function SecondStablishmentSignup() {
   const [modalIsOpen, setIsOpen] = useState(false);
+
   function openModal() {
     setIsOpen(true);
   }
+
   function closeModal() {
     setIsOpen(false);
   }

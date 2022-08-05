@@ -1,14 +1,16 @@
-import { useContext } from 'react';
+import FormButton from "../../components/button";
+import { useContext } from "react";
 import { AuthContext } from "../../contexts/Auth/AuthLogin/AuthContext";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
-  function handleLogout(event:  React.MouseEvent<HTMLAnchorElement, MouseEvent>){
-    event.preventDefault();
-    auth.signout();
-    navigate('/login')
+
+
+  async function handleLogout() {
+    await auth.signout();
+    navigate("/");
   }
 
   return (
@@ -25,5 +27,5 @@ export default function Home() {
       {auth.user && <a href="/login" onClick={handleLogout}>Sair</a>}
       <input type="submit" className="formButtonForward hover:cursor-pointer" value="Enviar" />
     </div>
-  )
+  );
 }

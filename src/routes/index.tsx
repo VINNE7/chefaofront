@@ -1,12 +1,12 @@
 import { Routes, Route, Link } from "react-router-dom";
 import MenuHeader from "../components/MenuHeader";
-import { RequireAuth } from "../contexts/Auth/AuthLogin/RequireAuth";
-import Home from "../pages/Homepage";
-import Login from "../pages/Login";
-import MenuPage from "../pages/MenuPage";
-import SecondStablishmentSignup from "../pages/SecondStablishmentSignup";
-import Signup from "../pages/Signup";
-import SuccessfulRegistration from "../pages/SuccessfulRegistration";
+import FirstStablishmentSignup from "../pages/firstStablishmentSignup";
+import Home from "../pages/homepage";
+import Login from "../pages/login";
+import SecondStablishmentSignup from "../pages/secondStablishmentSignup";
+import Signup from "../pages/signup";
+import SuccessfulRegistration from "../pages/successfulRegistration";
+import MenuPage from "../pages/menu";
 
 export default function RoutesComponent() {
   return (
@@ -31,7 +31,6 @@ export default function RoutesComponent() {
         element={<SuccessfulRegistration />}
       ></Route>
       <Route path="/menupage" element={<MenuPage />}></Route>
-      <Route path="/menu" element={<MenuHeader />}></Route>
     </Routes>
   );
 }
