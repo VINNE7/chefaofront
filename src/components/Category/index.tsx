@@ -27,10 +27,8 @@ export default function Category() {
       items: [{ name: "moda da casa", image: [], price: 0 }],
     },
   ]);
-  const [isEditable, setIsEditable] = useState(false);
-  const [editable, setEditable] = useState(false);
-  const [establishmentName, setEstablishmentName] =
-    useState("Nome da Categoria");
+  const [isCategoryEditable, setIsCategoryEditable] = useState(false);
+  const [isSubcategoryEditable, setIsSubcategoryEditable] = useState(false);
   const [establishmentSubcategory, setestablishmentSubcategory] = useState([
     { title: "Nova Subcategoria", id: Math.random() },
   ]);
@@ -85,26 +83,34 @@ export default function Category() {
         </button>
       </div>
       <div className="flex  justify-center ">
-        <input
-          className="text-raisinblack text-xl font-bold leading-8 "
-          type="text"
-          value={establishmentName}
-          onChange={(e: any) => setEstablishmentName(e.target.value)}
-          disabled={isEditable === false}
-        />
-        <button onClick={() => setIsEditable(!isEditable)}>
+        {subCategories.map((subCategory)=>
+          subCategory.categoryId == selectedCategoryNumber ? (
+            <input
+              className="text-raisinblack text-xl font-bold leading-8 "
+              type="text"
+              value={categories[0].name}
+              onChange={(e: any) => setSubCategories(categories.map((category)=> {
+                if(category.id === selectedCategoryNumber){
+                  return category.name = e.target.value
+                }
+              } ))}
+              disabled={isCategoryEditable === false}
+            />
+          ) : (<></>)
+        )}
+        <button onClick={() => setIsCategoryEditable(!isCategoryEditable)}>
           <img src={Edit} alt="" />
         </button>
       </div>
       <div className="pl-4">
-        {subCategories.map((subCategory, i) =>
+        {subCategories.map((subCategory) =>
           subCategory.categoryId == selectedCategoryNumber ? (
             <div className="bg-oxfordblue p-6 justify-between  rounded-lg shadow-md w-80 flex text-center mb-1 ">
               <div className="text-left flex gap-4 ">
                 <input
                   className="bg-oxfordblue font-bold w-[150px] text-base   leading-6 text-semiwhite"
                   type="text"
-                  disabled={editable === false}
+                  disabled={isSubcategoryEditable === false}
                   value={subCategory.name}
                   onChange={(e: any) =>
                     setestablishmentSubcategory(e.target.value)
