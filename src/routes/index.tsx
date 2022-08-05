@@ -1,12 +1,11 @@
 import { Routes, Route, Link } from "react-router-dom";
 import { RequireAuth } from "../contexts/Auth/AuthLogin/RequireAuth";
-import FirstStablishmentSignup from "../pages/firstStablishmentSignup";
-import Home from "../pages/Homepage";
+import Home from "../pages/homepage";
 import Login from "../pages/Login";
 import MenuPage from "../pages/MenuPage";
-import SecondStablishmentSignup from "../pages/SecondStablishmentSignup";
+import SecondStablishmentSignup from "../pages/secondStablishmentSignup";
 import Signup from "../pages/Signup";
-import SuccessfulRegistration from "../pages/SuccessfulRegistration";
+import SuccessfulRegistration from "../pages/successfulRegistration";
 
 export default function RoutesComponent() {
   return (
