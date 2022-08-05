@@ -53,6 +53,9 @@ export default function Category() {
     setestablishmentSubcategory(filteredSubcategories); //filtrando as subcategories que possuem um id diferente da que vc clicou
   }
 
+  const [isActive, setIsActive] = useState(false);
+  const onClik = () => setIsActive(!isActive);
+
   return (
     <>
       <div className="text-[#24252E] text-xl  font-bold p-4">
@@ -137,12 +140,18 @@ export default function Category() {
               </button>
             </div>
             <div className="flex">
-              <button>
+              <button onClick={onClik}>
                 <img className="" src={Drop} alt="" />
               </button>
             </div>
           </div>
-        ))} */}
+        ))} {isActive && (
+          <div className="drop">
+            <button className="bg-[#001B42] w-[320px] rounded-lg p-4 text-[#FAFAFA] ">
+              Adicionar Item
+            </button>
+          </div>
+        )} */}
         <button
           onClick={() => createSubcategorycard()}
           className="bg-royalblue shadow-md flex w-80 rounded-lg p-4 gap-1 items-center object-cover mt-6 "
