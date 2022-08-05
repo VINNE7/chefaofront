@@ -121,7 +121,7 @@ export default function Category() {
           <div className="drop">
             <button className="w-full h-[82px] bg-royaldark flex-row rounded-b-lg flex justify-between items-center hover:cursor-pointer mb-4">
               <div className="flex flex-col items-start gap-4">
-                <h1 className="text-white text-sm font-bold leading-[22px] ml-[8px]">
+                <h1 className="text-white text-sm font-bold leading-[22px] ml-4">
                   Adicionar item
                 </h1>
               </div>
