@@ -3,26 +3,33 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/Auth/AuthLogin/AuthContext';
 import { IFormInputs } from '../../types';
 import Logo from '../../assets/images/logo.png';
+import Loading from '../../components/Loading';
 
 export default function Login() {
   const [formData, setFormData] = useState<IFormInputs>({
     email: '',
     senha: '',
   });
+
+  const [loading, setLoading] = useState(false);
+
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
+
   const handleFormSubmit = useCallback(async (event: FormEvent) => {
     event.preventDefault()
     const { email, senha } = formData;
+    setLoading(true)
     const isLogged = await auth.signin(email, senha)
     if (email && senha) {
       if (isLogged) {
+        setLoading(false);
         navigate('/');
         return true;
       }
-      return false
+      return false;
     }
-  }, [formData]);
+  }, [formData , loading, setLoading]);
 
   return (
     <>
@@ -59,9 +66,12 @@ export default function Login() {
             </label>
             <input
               type='password' placeholder='Digite sua senha' id='password' autoComplete='current-password' required minLength={8}
-              className="w-full rounded-[5px] border border-royalblue py-2 pl-4 pr-6 mb-10 text-sm"
+              className="w-full rounded-[5px] border border-royalblue py-2 pl-4 pr-6 mb-5 text-sm"
               onChange={(e) => setFormData({ ...formData, senha: e.target.value })}
             />
+          </div>
+          <div className='pb-5 text-center  text-red-700'>
+          {loading ? <Loading /> : false}
           </div>
 
           <div className='text-center'>
@@ -71,7 +81,6 @@ export default function Login() {
             </button>
             <div className='p-10  flex flex-col justify-center items-center'>
               <span className='font-bold font-xl mb-8 text-raisinblack text-base' >
-
                 Ainda não possui uma conta?
               </span>
               <Link to={'/signup'}

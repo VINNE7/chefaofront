@@ -2,6 +2,7 @@ import FormButton from "../../components/button";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/Auth/AuthLogin/AuthContext";
 import { useNavigate } from "react-router-dom";
+import Avatar from "../../components/avatar";
 
 export default function Home() {
   const auth = useContext(AuthContext);
@@ -15,6 +16,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col bg-slate-800">
+      <Avatar/>
       <div>
         <h1 className="text-4xl mb-7"
         > Olá {auth.user?.name}, Tudo bem?
